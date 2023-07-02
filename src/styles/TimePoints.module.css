@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #46cec7;
+    padding: 0 50px 0 50px;
+}
+
+.gold {
+    background-image: url('/icons/gold.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(239, 215, 79);
+    font-size: 1.6rem;
+    padding-top: 5px;
+}
+
+.clock {
+    background-image: url('/icons/clock.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    font-size: 1.6rem;
+    padding-top: 5px;
+}
+
+@media(min-width: 768px) {
+
+    .container {
+        display: flex;
+        width: 100%;
+        height: 10vh;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0 auto;
+        background-color: #46cec7;
+        padding: 0 50px 0 50px;
+    }
+
+}
