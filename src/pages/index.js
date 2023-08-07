@@ -44,7 +44,6 @@ const Home = () => {
   );
 
   //localStorage
-
   useEffect(() => {
     localStorage.setItem(
       "points",
