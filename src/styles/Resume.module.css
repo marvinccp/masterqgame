@@ -50,4 +50,13 @@ background: linear-gradient(320deg, orange, rgba(255, 72, 0, 0.758), rgba(247, 1
     align-items: center;
     width: 95%;
     gap: 20px;
+    text-align: center;
+}
+.zombie{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    height: 90vh;
 }
