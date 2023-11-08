@@ -6,8 +6,8 @@ import { data } from "../helpers/data";
 import { TimeBarr } from "@/components/TimeBarr";
 import { Modal } from "@/components/Modal";
 import { useRouter } from "next/router";
+import GameResume from "@/components/GameResume";
 const inter = Inter({ subsets: ["latin"] });
-
 
 const Home = () => {
   const [category, setCategory] = useState("Easy");
@@ -155,6 +155,7 @@ const Home = () => {
             ))}
           </section>
         </section>
+
         {show && <Modal starGame={starGame} handleChange={handleChange} />}
       </>
     );

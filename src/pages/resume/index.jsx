@@ -7,14 +7,13 @@ import { Press_Start_2P } from "next/font/google";
 const start = Press_Start_2P({ subsets: ["latin"], weight: "400" });
 
 const Index = ({ children }) => {
-
   const initialState = {
-    points: 0,
+    points: null,
     correct: 0,
     questionsNumber: [],
+    loading: true,
   };
 
-  console.log(initialState.points)
   const gameResumeReducer = (state, action) => {
     switch (action.type) {
       case "RESUME":
@@ -23,6 +22,7 @@ const Index = ({ children }) => {
           points: action.payload.points,
           correct: action.payload.correct,
           questionsNumber: action.payload.questions,
+          loading: false,
         };
     }
   };
@@ -40,7 +40,7 @@ const Index = ({ children }) => {
   //se crea una matriz donde esten los rangos y la calificación
 
   const rewardMap = {
-    0: "zombi",
+    0: "zombie",
     1: "good",
     11: "excellent",
     21: "superior",
@@ -62,34 +62,34 @@ los puntos son menores que la próxima key . . .
   // let reward;
   let reward = rewardKeys.find((key, i) => {
     const nextKey = rewardKeys[i + 1];
-    return state.points >= key && (nextKey === undefined || state.points < nextKey);
+    return (
+      state.points >= key && (nextKey === undefined || state.points < nextKey)
+    );
   });
 
   //asiganamos una variable que contiene el valor de la key
 
   let rewardInfo = rewardMap[reward];
+  console.log(rewardInfo);
 
   const pointsReward = {
     good: {
       img: "/icons/good.png",
       text: "Good Work",
     },
-    excelent: { img: "/icons/excelent.png", text: "You Are Excelent" },
+    excellent: { img: "/icons/excelent.png", text: "You Are Excelent" },
     superior: { img: "/icons/superior.png", text: "You Are Amazing" },
     god: { img: "/icons/god.png", text: "You Are a god" },
     heroe: { img: "/icons/heroe.png", text: "You Are A Hero" },
     master: { img: "/images/logo-master.png", text: "You Are A Master" },
-    zombi: {
-      img: "/icons/zombi.png",
-      text: "You are a zombie",
-    },
+    zombie: { img: "/icons/zombi.png", text: "You are a zombie" },
   };
 
   return (
     <>
       <GameLayout title="Resumen" />
 
-      {state.points != 0 ? (
+      {state.points ? (
         <main className={styles.container}>
           {children}
           <div className={styles.resume}>
@@ -114,6 +114,10 @@ los puntos son menores que la próxima key . . .
             <button className={styles.new_game_button}>New Game</button>
           </Link>
         </main>
+      ) : state.loading ? (
+        <section className={styles.zombie}>
+          <div className={styles.loader}></div>
+        </section>
       ) : (
         <section className={styles.zombie}>
           <h1>{pointsReward[rewardInfo]?.text}</h1>
