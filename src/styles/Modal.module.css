@@ -25,7 +25,7 @@
 
 @keyframes slideInFromBottom {
     from {
-        bottom: -300px;
+        bottom: -100px;
     }
 
     to {
@@ -62,7 +62,6 @@
     margin: 50px 0;
     width: 130px;
     height: 30px;
-    text-indent: 15px;
     border-radius: 8px;
     border: none;
     outline: 8px rgb(84, 119, 223) solid;
@@ -73,12 +72,21 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     cursor: pointer;
+
+    display: flex;
+
+
+
 }
 
-.level .option {
+/* .optionItem {
 
-    background-color: rgb(19, 187, 19);
-}
+    background: rgb(19, 187, 19);
+    text-align: center;
+    margin: 50px auto;
+    color: red;
+} */
+
 
 .go_button_container {
     margin: 50px 0 0 0;
@@ -102,10 +110,112 @@
 
 }
 
-@media(min-width:768px) {
+.btns_options {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+
+}
+
+.item {
+    color: white;
+    height: 35px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    /* outline: 1px solid rgb(187, 187, 187); */
+}
+.item:hover {
+       background: rgb(121, 172, 255);
+
+}
+
+.btnItem1 {
+    background: rgb(50, 197, 136);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+}
+
+.btnItem2 {
+    background: rgb(255, 165, 91);
+
+
+}
+
+.btnItem3 {
+    background: rgb(235, 6, 75);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+.selected{
+
+    background: rgb(0, 98, 255);
+    height: 50px;
+    outline: white;
+    width: 102%;
+}
+.selected:hover{
+
+    background: rgb(0, 98, 255);
+    height: 50px;
+    outline: white;
+    width: 102%;
+}
+
+@media(width >= 768px) {
 
     .modal {
-        width: 35%;
+        width: 55%;
         height: 50%;
     }
+    .btns_options {
+        flex-direction: row;
+        width: 80%;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .item {
+        width: 40%;
+        /* outline: 1px solid rgb(187, 187, 187); */
+    }
+    .btnItem1 {
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 0;
+    }
+
+    
+
+    .btnItem3 {
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0;
+
+    }
+
+    .item:hover {
+        height: 35px;
+        width: 45%;
+    }
+    .selected {
+
+    background: rgb(0, 98, 255);
+        height: 37px;
+        width: 45%;
+            outline: white;
+
+    }
+    .selected:hover {
+
+    background: rgb(0, 98, 255);
+        height: 37px;
+        width: 45%;
+            outline: white;
+
+    }
+
 }

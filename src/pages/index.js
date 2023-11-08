@@ -117,8 +117,9 @@ const Home = () => {
     }
   };
   //escoger nivel de dificultad
-  const handleChange = (e) => {
-    setCategory(e.target.value);
+  const handleChange = (value) => {
+    setCategory(value);
+    console.log(value);
   };
 
   //iniciar el juego luego de escoger nivel de dificultad
@@ -134,27 +135,31 @@ const Home = () => {
     return (
       <>
         <GameLayout name="Home" />
-        <TimeBarr points={points} time={time} />
-
-        <section className={styles.main}>
-          <section className={styles.question_container}>
-            {/* Questions */}
-            <span>{questionsLevel[actualQuestion]?.question}</span>
-          </section>
-          <section className={styles.answers_container}>
-            {/* Answers */}
-            {questionsLevel[actualQuestion]?.options.map((answer) => (
-              <button
-                key={answer.op}
-                disabled={disabled}
-                onClick={(e) => handleAnswer(answer.isCorrect, e)}
-                className={`${styles.answer}`}
-              >
-                {answer.answerText}
-              </button>
-            ))}
-          </section>
-        </section>
+        <div className={styles.start_blank}>
+          {" "}
+          {start && <TimeBarr points={points} time={time} />}
+          {start && (
+            <section className={styles.main}>
+              <section className={styles.question_container}>
+                {/* Questions */}
+                <span>{questionsLevel[actualQuestion]?.question}</span>
+              </section>
+              <section className={styles.answers_container}>
+                {/* Answers */}
+                {questionsLevel[actualQuestion]?.options.map((answer) => (
+                  <button
+                    key={answer.op}
+                    disabled={disabled}
+                    onClick={(e) => handleAnswer(answer.isCorrect, e)}
+                    className={`${styles.answer}`}
+                  >
+                    {answer.answerText}
+                  </button>
+                ))}
+              </section>
+            </section>
+          )}
+        </div>
 
         {show && <Modal starGame={starGame} handleChange={handleChange} />}
       </>
