@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import styles from "../styles/Modal.module.css";
 import ReactDOM from "react-dom";
 import Image from "next/image";
+import { Press_Start_2P } from "next/font/google";
+const start = Press_Start_2P({ subsets: ["latin"], weight: "400" });
 
-export const Modal = ({ starGame, handleChange }) => {
+export const Modal = ({ starGame, handleChange, optionError }) => {
   const [browser, setBrowser] = useState(false);
   const [selectedOption, setselectedOption] = useState("");
 
@@ -18,6 +20,14 @@ export const Modal = ({ starGame, handleChange }) => {
   if (browser) {
     return ReactDOM.createPortal(
       <section className={styles.container}>
+        <div className={styles.option_error}>
+          <p
+            className={start.className}
+            style={{ color: "red", fontSize: "1rem", lineHeight: "2rem" }}
+          >
+            {optionError}
+          </p>
+        </div>
         <div className={styles.modal}>
           <Image
             className={styles.image}
@@ -82,7 +92,10 @@ export const Modal = ({ starGame, handleChange }) => {
             </option>
           </select> */}
           <div className={styles.go_button_container}>
-            <button className={styles.start} onClick={starGame}>
+            <button
+              className={styles.start}
+              onClick={() => starGame(selectedOption)}
+            >
               LET`S GO
             </button>
           </div>

@@ -19,6 +19,7 @@ const Home = () => {
   const [correct, setCorrect] = useState(0);
   const [start, setStart] = useState(false);
   const [show, setShow] = useState(false);
+  const [ optionError, setOptionError] = useState('')
 
   //questions
   const [questionsData, setQuestionsData] = useState(data);
@@ -119,14 +120,17 @@ const Home = () => {
   //escoger nivel de dificultad
   const handleChange = (value) => {
     setCategory(value);
-    console.log(value);
   };
 
   //iniciar el juego luego de escoger nivel de dificultad
-  const starGame = () => {
-    setTime(10);
-    setShow(false);
-    setStart(true);
+  const starGame = (selectedOption) => {
+    if (!selectedOption) {
+      setOptionError("Choose Level!!");
+    } else {
+      setTime(10);
+      setShow(false);
+      setStart(true);
+    }
   };
 
   if (end) {
@@ -161,7 +165,13 @@ const Home = () => {
           )}
         </div>
 
-        {show && <Modal starGame={starGame} handleChange={handleChange} />}
+        {show && (
+          <Modal
+            optionError={optionError}
+            starGame={starGame}
+            handleChange={handleChange}
+          />
+        )}
       </>
     );
 };

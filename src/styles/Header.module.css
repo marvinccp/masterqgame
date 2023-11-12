@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(132, 132, 132);
+    background: rgb(132, 132, 132);
     display: flex;
     justify-content: space-around;
     
@@ -15,6 +15,10 @@
     background-clip: content-box;
    background-blend-mode: hue;
     
+}
+
+.image_{
+    z-index: 2;
 }
 
 .config {
