@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../styles/Modal.module.css";
+import styles from "./Modal.module.css";
 import ReactDOM from "react-dom";
 import Image from "next/image";
 import { Press_Start_2P } from "next/font/google";

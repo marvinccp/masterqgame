@@ -1,4 +1,4 @@
-import styles from '../styles/TimePoints.module.css'
+import styles from './TimePoints.module.css'
 
 export const TimeBarr = ({ points, time}) => {
   return (

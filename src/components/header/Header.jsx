@@ -1,7 +1,6 @@
-import style from "../styles/Header.module.css";
+import style from "./Header.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useState } from "react";
 
 export const Header = ({}) => {
 

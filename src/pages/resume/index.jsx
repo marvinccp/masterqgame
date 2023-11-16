@@ -1,5 +1,6 @@
-import { useEffect, useState, useReducer } from "react";
-import styles from "../../styles/Resume.module.css";
+import { useEffect, useReducer } from "react";
+import { gameResumeReducer } from "@/context/reducers/reducers";
+import styles from "../../components/resume/Resume.module.css";
 import GameLayout from "@/layouts/GameLayout";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,19 +13,6 @@ const Index = ({ children }) => {
     correct: 0,
     questionsNumber: [],
     loading: true,
-  };
-
-  const gameResumeReducer = (state, action) => {
-    switch (action.type) {
-      case "RESUME":
-        return {
-          ...state,
-          points: action.payload.points,
-          correct: action.payload.correct,
-          questionsNumber: action.payload.questions,
-          loading: false,
-        };
-    }
   };
 
   const [state, dispatch] = useReducer(gameResumeReducer, initialState);
