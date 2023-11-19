@@ -2,8 +2,9 @@ import styles from "../../components/resume/Resume.module.css";
 import GameLayout from "@/layouts/GameLayout";
 import Link from "next/link";
 import Image from "next/image";
-import { Press_Start_2P } from "next/font/google";
 import useResume from "@/hooks/useResume";
+
+import { Press_Start_2P } from "next/font/google";
 const start = Press_Start_2P({ subsets: ["latin"], weight: "400" });
 
 const Index = ({ children }) => {

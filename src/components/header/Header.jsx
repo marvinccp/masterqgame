@@ -16,8 +16,6 @@ export const Header = ({}) => {
         className={style.image_}
       />
       <Image
-        // onMouseEnter={() => console.log("entro")}
-        // onMouseLeave={() => console.log("salgo")}
         className={style.image_}
         src="/icons/config-icon.png"
         alt="config-icon"

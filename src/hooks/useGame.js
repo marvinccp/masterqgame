@@ -4,8 +4,6 @@ import { useReducer, useEffect } from 'react'
 import styles from "@/styles/Home.module.css";
 
 
-
-
 const useGame = () => {
 
    const initialState = {
@@ -53,7 +51,6 @@ const [state, dispatch] = useReducer(gameReducer, initialState);
 
 //questions
 const questionsData = data;
-console.log(state)
 
 //level questions
 const questionsLevel = questionsData.filter(

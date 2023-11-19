@@ -10,33 +10,61 @@
 }
 
 .gold {
-    background-image: url('/icons/gold.png');
+    /* background-image: url('/icons/gold.png');
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
-    width: 52px;
-    height: 52px;
+    background-repeat: no-repeat; */
+    width: 80px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: rgb(239, 215, 79);
-    font-size: 1.6rem;
-    padding-top: 5px;
+    font-size: 1.5rem;
+    /* padding-top: 5px; */
+    border: none;
+    border-radius: 15px;
+    margin-top: 25px;
+    border: solid rgb(239, 215, 79) 7px;
+    border-radius: 50%;
+
+
+     text-shadow: 1px 1px 1px #9191913b,
+     1px 2px 1px #91919158,
+     1px 3px 1px #91919102,
+     1px 4px 1px #919191,
+     1px 5px 1px #9191911b,
+     1px 1px 1px rgba(16, 16, 16, 0.087),
+     1px 3px 1px rgba(16, 16, 16, 0.049);
+     
 }
 
 .clock {
-    background-image: url('/icons/clock.png');
+    /* background-image: url('/icons/clock.png');
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
-    width: 50px;
-    height: 50px;
+    background-repeat: no-repeat; */
+     width: 80px;
+     height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: red;
-    font-size: 1.6rem;
-    padding-top: 5px;
+    font-size: 1.5rem;
+    /* padding-top: 10px; */
+        margin-top: 25px;
+        border: solid red 7px;
+        border-radius: 50%;
+
+
+        text-shadow: 1px 1px 1px #2d2d2d3b,
+        1px 2px 1px #91919158,
+        1px 3px 1px #91919102,
+        1px 4px 1px #919191,
+        1px 5px 1px #9191911b,
+        1px 1px 1px rgba(16, 16, 16, 0.087),
+        1px 3px 1px rgba(16, 16, 16, 0.049);
+
 }
 
 @media(min-width: 768px) {
