@@ -15,9 +15,6 @@ export const Header = ({}) => {
         height={53}
         className={style.image_}
       />
-      {/* <button onClick={() => router.push("/")} className={style.button_right}>
-          New Game
-        </button> */}
       <Image
         // onMouseEnter={() => console.log("entro")}
         // onMouseLeave={() => console.log("salgo")}
