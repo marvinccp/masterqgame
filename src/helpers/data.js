@@ -1,3 +1,18 @@
+export const getData = async () =>{
+  const res = await fetch('https://masterquestionback-production.up.railway.app/game/questions')
+  const data = await res.json()
+  console.log(data);
+  return data
+}
+
+
+
+
+
+
+
+
+
 export const data = [
   {
     id: 16,

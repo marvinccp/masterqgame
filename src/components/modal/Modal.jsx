@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Modal.module.css";
 import ReactDOM from "react-dom";
+import {motion} from 'framer-motion'
 import Image from "next/image";
 import { Press_Start_2P } from "next/font/google";
 const start = Press_Start_2P({ subsets: ["latin"], weight: "400" });
@@ -41,7 +42,9 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
           </h3> */}
           {/* <h2>Choose your level</h2> */}
           <div className={styles.btns_options}>
-            <button
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
               className={`${styles.btnItem1} ${styles.item} ${
                 selectedOption === "Easy" ? styles.selected : ""
               }`}
@@ -51,8 +54,10 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
               }}
             >
               Easy
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
               className={`${styles.btnItem2} ${styles.item} ${
                 selectedOption === "Medium" ? styles.selected : ""
               }`}
@@ -62,8 +67,10 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
               }}
             >
               Medium
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
               className={`${styles.btnItem3} ${styles.item} ${
                 selectedOption === "Hard" ? styles.selected : ""
               }`}
@@ -73,7 +80,7 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
               }}
             >
               Hard
-            </button>
+            </motion.button>
           </div>
           {/* <select
             onChange={handleChange}

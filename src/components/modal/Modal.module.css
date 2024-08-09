@@ -9,7 +9,7 @@
 
 .modal {
     background-color: rgb(239, 239, 239);
-    width: 70%;
+    width: 75%;
     height: 60vh;
     z-index: 100;
     display: flex;
@@ -57,7 +57,8 @@
     margin: 0 auto;
     /* background-color: rgba(0, 0, 0, 0.759); */
 }
-.option_error{
+
+.option_error {
     position: absolute;
     top: 16%;
     left: 50%;
@@ -125,7 +126,10 @@
 .btns_options {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    gap: 10px;
 
 }
 
@@ -135,99 +139,76 @@
     font-size: 1.2rem;
     border: none;
     cursor: pointer;
+    width: 85%;
     /* outline: 1px solid rgb(187, 187, 187); */
 }
-.item:hover {
-       background: rgb(121, 172, 255);
 
-}
+
 
 .btnItem1 {
     background: rgb(50, 197, 136);
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    /* border-top-right-radius: 10px;
+    border-top-left-radius: 10px; */
+    border-radius: 20px;
 
 }
 
 .btnItem2 {
     background: rgb(255, 165, 91);
+    border-radius: 20px;
+
 
 
 }
 
 .btnItem3 {
     background: rgb(235, 6, 75);
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    /* border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px; */
+    border-radius: 20px;
+
 
 }
-.selected{
 
-    background: rgb(0, 98, 255);
-    height: 50px;
+.selected {
+
+    /* background: rgb(255, 0, 247); */
     outline: white;
-    width: 102%;
+    background-image: url('../../../public/icons/cursor.png');
+    background-position: calc(98% - 2%);
+    background-repeat: no-repeat;
+background-size: 20px;
+z-index: 2;
 }
-.selected:hover{
 
-    background: rgb(0, 98, 255);
-    height: 50px;
+.selected:hover {
+
+    /* background: rgb(255, 0, 247); */
     outline: white;
-    width: 102%;
 }
 
-@media(width >= 768px) {
+@media(width >=768px) {
 
     .modal {
-        width: 55%;
+        width: 60%;
         height: 50%;
     }
+
     .btns_options {
         flex-direction: row;
-        width: 80%;
+        width: 90%;
         align-items: center;
         justify-content: center;
 
     }
 
     .item {
-        width: 40%;
+        width: 35%;
         /* outline: 1px solid rgb(187, 187, 187); */
     }
-    .btnItem1 {
-        border-bottom-left-radius: 10px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 0;
-    }
 
-    
+   
+   
 
-    .btnItem3 {
-        border-bottom-right-radius: 10px;
-        border-top-right-radius: 10px;
-        border-bottom-left-radius: 0;
-
-    }
-
-    .item:hover {
-        height: 35px;
-        width: 45%;
-    }
-    .selected {
-
-    background: rgb(0, 98, 255);
-        height: 37px;
-        width: 45%;
-            outline: white;
-
-    }
-    .selected:hover {
-
-    background: rgb(0, 98, 255);
-        height: 37px;
-        width: 45%;
-            outline: white;
-
-    }
 
 }
