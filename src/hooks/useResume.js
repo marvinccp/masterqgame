@@ -20,7 +20,6 @@ const useResume = () => {
      }, [state.loading]);
 
      //se crea una matriz donde esten los rangos y la calificación
-
      const rewardMap = {
        0: "zombie",
        1: "good",

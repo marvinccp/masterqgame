@@ -28,33 +28,6 @@ const useGame = () => {
     fetchData();
   }, []);
 
-  // const [state, dispatch] = useReducer(reducer, state);
-
-  // const [category, setCategory] = useState(null);
-  // const [end, setEnd] = useState(false);
-  // const [actualQuestion, setActualQuestion] = useState(0);
-  // const [disabled, setDisabled] = useState(false);
-  // const [time, setTime] = useState(0);
-  // const [points, setPoints] = useState(0);
-  // const [correct, setCorrect] = useState(0);
-  // const [start, setStart] = useState(false);
-  // const [show, setShow] = useState(false);
-  // const [optionError, setOptionError] = useState("");
-
-  /*
-  En este use effect hacemos el fetch de las preguntas a la base datos,
-  con fines academicos estoy usando el archivo data.js que contiene las preguntas
-  */
-
-  // useEffect(() => {
-  //   const data = async () => {
-  //     const res = await fetch("http://localhost:3000/game/Questions/");
-  //     const data = await res.json();
-  //     console.log(data);
-  //     setQuestionsData(data);
-  //   };
-  //   data();
-  // }, []);
 
   //questions
   const questionsData = data;
