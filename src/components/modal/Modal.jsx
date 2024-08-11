@@ -53,6 +53,7 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
                 options("Easy");
               }}
             >
+      
               Easy
             </motion.button>
             <motion.button
@@ -66,6 +67,7 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
                 options("Medium");
               }}
             >
+        
               Medium
             </motion.button>
             <motion.button
@@ -80,6 +82,19 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
               }}
             >
               Hard
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className={`${styles.btnItem4} ${styles.item} ${
+                selectedOption === "Tecno" ? styles.selected : ""
+              }`}
+              onClick={() => {
+                handleChange("Tecno");
+                options("Tecno");
+              }}
+            >
+              Tecno
             </motion.button>
           </div>
           {/* <select

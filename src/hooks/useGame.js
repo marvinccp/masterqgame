@@ -28,14 +28,13 @@ const useGame = () => {
     fetchData();
   }, []);
 
-
   //questions
   const questionsData = data;
 
   //level questions
   const questionsLevel = questionsData.filter(
     (questions) => questions.category === state.category
-  );
+  ).slice(0,20)
 
   //localStorage
   useEffect(() => {
@@ -88,7 +87,20 @@ const useGame = () => {
   /*
   Pasar a la siguiente pregunta o hacer el resumen
   */
+
+  const nivelMessages = {
+    10: "Ahora vamos al Nivel 2",
+    20: "Ahora vamos al Nivel 3",
+    30: "Ahora vamos al Nivel 4",
+    40: "Ahora vamos al Nivel 5",
+  };
+
   const nextQuestion = (e) => {
+    console.log(nivelMessages[state.actualQuestion]);
+
+    if (nivelMessages[state.actualQuestion]) {
+      console.log(nivelMessages[state.actualQuestion]);
+    }
     if (state.actualQuestion === questionsLevel.length - 1) {
       setTimeout(() => {
         dispatch({ type: "END_GAME" });
@@ -97,9 +109,8 @@ const useGame = () => {
       }, 2500);
     } else {
       setTimeout(() => {
-        e.target.classList = styles.answer;
         dispatch({ type: "NEXT_QUESTION" });
-
+        e.target.classList = styles.answer;
         // setActualQuestion(actualQuestion + 1);
         // setDisabled(false);
         // setTime(10);

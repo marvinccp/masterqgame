@@ -169,6 +169,14 @@
 
 
 }
+.btnItem4{
+    background: rgb(46, 8, 96);
+    /* border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px; */
+    border-radius: 20px;
+
+
+}
 
 .selected {
 
