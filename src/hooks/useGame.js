@@ -92,9 +92,9 @@ const useGame = () => {
   */
 
   const nivelMessages = {
-    7: "Ahora vamos al Nivel 2",
+    5: "Ahora vamos al Nivel 2",
     14: "Ahora vamos al Nivel 3",
-    21: "Ahora vamos al Nivel 4",
+    20: "Ahora vamos al Nivel 4",
   };
 
   const nextQuestion = (e) => {
