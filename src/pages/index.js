@@ -67,7 +67,7 @@ const Home = () => {
               height:'35px',
               borderRadius:'50px',
               display:'grid',
-              placeContent:'center'
+              placeContent:'center', fontSize:'1.2rem'
             }
             }>
             {actualQuestion + 1}
