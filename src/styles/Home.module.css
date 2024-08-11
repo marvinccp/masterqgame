@@ -79,6 +79,7 @@
   background: linear-gradient(#46cec7, rgb(35, 33, 179), rgba(57, 216, 81, 0.73));
   height: 88vh;
   width: 100%;
+  position: relative;
 }
 
 
@@ -104,3 +105,18 @@
   }
 
 }
+
+.message{
+    position: absolute;
+    background: transparent;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: "transparent";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+  }
+  

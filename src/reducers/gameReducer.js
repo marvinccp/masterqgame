@@ -51,5 +51,21 @@ export const gameReducer = (state, action) => {
         ...state,
         optionError: action.payload,
       };
+    case "OPTION_ERROR":
+      return {
+        ...state,
+        optionError: action.payload,
+      };
+    case "TRANSITION":
+      return {
+        ...state,
+        transition: true,
+        messageLevel: action.payload,
+      };
+    case "CLOSE_TRANSITION":
+      return {
+        ...state,
+        transition: false,
+      };
   }
 };

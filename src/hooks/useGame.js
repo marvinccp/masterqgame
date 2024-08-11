@@ -15,10 +15,13 @@ const useGame = () => {
     start: false,
     show: false,
     optionError: "",
+    transition: false,
+    messageLevel:''
   };
 
   const [state, dispatch] = useReducer(gameReducer, initialState);
   const [data, setData] = useState([]);
+  
   useEffect(() => {
     const fetchData = async () => {
       const res = await getData();
@@ -34,7 +37,7 @@ const useGame = () => {
   //level questions
   const questionsLevel = questionsData.filter(
     (questions) => questions.category === state.category
-  ).slice(0,20)
+  ).slice(0,30)
 
   //localStorage
   useEffect(() => {
@@ -89,10 +92,9 @@ const useGame = () => {
   */
 
   const nivelMessages = {
-    10: "Ahora vamos al Nivel 2",
-    20: "Ahora vamos al Nivel 3",
-    30: "Ahora vamos al Nivel 4",
-    40: "Ahora vamos al Nivel 5",
+    7: "Ahora vamos al Nivel 2",
+    14: "Ahora vamos al Nivel 3",
+    21: "Ahora vamos al Nivel 4",
   };
 
   const nextQuestion = (e) => {
@@ -100,6 +102,10 @@ const useGame = () => {
 
     if (nivelMessages[state.actualQuestion]) {
       console.log(nivelMessages[state.actualQuestion]);
+      dispatch({ type: "TRANSITION", payload: nivelMessages[state.actualQuestion]});
+      setTimeout(()=>{
+        dispatch({ type: "CLOSE_TRANSITION"});
+      }, 4000)
     }
     if (state.actualQuestion === questionsLevel.length - 1) {
       setTimeout(() => {
@@ -159,6 +165,8 @@ const useGame = () => {
     actualQuestion: state.actualQuestion,
     disabled: state.disabled,
     questionsLevel,
+    transition:state.transition,
+    messageLevel:state.messageLevel,
     starGame,
     handleChange,
     handleAnswer,
