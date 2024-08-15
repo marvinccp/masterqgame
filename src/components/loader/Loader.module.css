@@ -1,0 +1,17 @@
+.loader_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin: auto auto;
+  background: lightskyblue;
+
+}
+
+.loader_spinner_container {
+  background: lightskyblue;
+}
+.image_ {
+  z-index: 2;
+}

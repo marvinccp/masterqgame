@@ -40,7 +40,7 @@ const Index = ({ children }) => {
             alt="reward"
             className={styles.image}
           />
-          <Link className={styles.link} href={"/"}>
+          <Link className={styles.link} href={"/game"}>
             <button className={styles.new_game_button}>New Game</button>
           </Link>
         </main>
@@ -58,7 +58,7 @@ const Index = ({ children }) => {
             alt="reward"
             className={styles.image}
           />
-          <Link className={styles.link} href={"/"}>
+          <Link className={styles.link} href={"/game"}>
             <button className={styles.new_game_button}>New Game</button>
           </Link>
         </section>

@@ -2,8 +2,10 @@ import { getData } from "@/helpers/data";
 import { gameReducer } from "@/reducers/gameReducer";
 import { useReducer, useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
+import { useRouter } from "next/router";
 
 const useGame = () => {
+  const router = useRouter()
   const initialState = {
     category: null,
     end: false,
@@ -37,7 +39,7 @@ const useGame = () => {
   //level questions
   const questionsLevel = questionsData.filter(
     (questions) => questions.category === state.category
-  ).slice(0,30)
+  ).slice(0,3)
 
   //localStorage
   useEffect(() => {
@@ -155,6 +157,12 @@ const useGame = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    router.push("/"); 
+  };
+
   return {
     end: state.end,
     start: state.start,
@@ -170,6 +178,7 @@ const useGame = () => {
     starGame,
     handleChange,
     handleAnswer,
+    handleLogout
   };
 };
 export default useGame;
