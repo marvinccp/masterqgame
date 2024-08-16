@@ -15,6 +15,7 @@ const Index = ({ children }) => {
     questionsNumber,
     pointsReward,
     rewardInfo,
+    handleLogout
   } = useResume();
   return (
     <>
@@ -40,9 +41,13 @@ const Index = ({ children }) => {
             alt="reward"
             className={styles.image}
           />
+          <section className={styles.buttons_container}>
           <Link className={styles.link} href={"/game"}>
             <button className={styles.new_game_button}>New Game</button>
           </Link>
+          <button className={styles.logout_button}  onClick={handleLogout}>logout</button>
+          </section>
+         
         </main>
       ) : loading ? (
         <section className={styles.zombie}>

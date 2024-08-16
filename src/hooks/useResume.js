@@ -1,7 +1,16 @@
 import { gameResumeReducer } from '@/reducers/gameResumeReducer';
+import { useRouter } from 'next/router';
 import {useReducer, useEffect} from 'react'
 
 const useResume = () => {
+  const router = useRouter()
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    router.push("/");
+  };
+
 
      const initialState = {
        points: null,
@@ -78,6 +87,7 @@ los puntos son menores que la próxima key . . .
     loading: state.loading,
     correct: state.correct,
     questionsNumber: state.questionsNumber,
+    handleLogout
   };
 }
 

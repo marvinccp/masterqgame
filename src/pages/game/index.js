@@ -8,16 +8,16 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const router = useRouter();
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-  //   if (!token) {
-  //     router.push("/");
-  //   } else {
-  //     setLoading(false);
-  //   }
-  // }, [router]);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/");
+    } else {
+      setLoading(false);
+    }
+  }, [router]);
 
   const {
     end,
@@ -42,13 +42,15 @@ const Home = () => {
     }
   }, [end, router]);
 
-  // if (loading) {
-  //   return null;
-  // }
+  if (loading) {
+    return null;
+  }
+
+  
 
   return (
     <>
-      <GameLayout name="Home" />
+      <GameLayout  name="Home" />
 
       <div className={styles.start_blank}>
         {transition && (

@@ -158,12 +158,7 @@ console.log(state.points);
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    router.push("/");
-  };
-
+  
   return {
     end: state.end,
     start: state.start,
@@ -179,7 +174,6 @@ console.log(state.points);
     starGame,
     handleChange,
     handleAnswer,
-    handleLogout,
     correct: state.correct,
   };
 };
