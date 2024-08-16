@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
