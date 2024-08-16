@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "../../styles/Login.module.css";
-import axios from "axios";
+import axios from 'axios';
 
 export const RegisterForm = ({ closeModal }) => {
   const [formData, setFormData] = useState({
