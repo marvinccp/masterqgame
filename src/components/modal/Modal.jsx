@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import styles from "./Modal.module.css";
 import ReactDOM from "react-dom";
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { Press_Start_2P } from "next/font/google";
+import useResume from "@/hooks/useResume";
 const start = Press_Start_2P({ subsets: ["latin"], weight: "400" });
 
 export const Modal = ({ starGame, handleChange, optionError }) => {
@@ -18,6 +19,8 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
     setBrowser(true);
   }, []);
 
+  const { handleLogout } = useResume();
+
   if (browser) {
     return ReactDOM.createPortal(
       <section className={styles.container}>
@@ -30,12 +33,15 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
           </p>
         </div>
         <div className={styles.modal}>
+          <button onClick={handleLogout} className={styles.logout_button}>
+            logout
+          </button>
           <Image
             className={styles.image}
-            src="/images/logo-blue.png"
+            src="/images/mq_1.png"
             alt="logo-white"
-            width={180}
-            height={73}
+            width={140}
+            height={140}
           />
           {/* <h3 className={styles.text}>
             Welcome!! Are you ready ? <br />
@@ -53,7 +59,6 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
                 options("Easy");
               }}
             >
-      
               Easy
             </motion.button>
             <motion.button
@@ -67,7 +72,6 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
                 options("Medium");
               }}
             >
-        
               Medium
             </motion.button>
             <motion.button

@@ -13,20 +13,16 @@ export const Header = ({}) => {
   return (
     <header className={style.container}>
       <section className={style.logo_container}>
-      <Image
-        src="/images/logo-blue.png"
-        alt="logo-white"
-        width={140}
-        height={53}
-        className={style.image_}
-      />
-
-    
+        <Image
+          src="/images/mq_1.png"
+          alt="logo-white"
+          width={80}
+          height={80}
+          className={style.image_}
+        />
       </section>
-      <section>
-      {
-  <p className={style.welcome_message}>Bienvenid@: <span>{user?.nickname}</span></p>
-}
+      <section className={style.user_container}>
+        <p className={style.user_nickname}><span className={style.mando}></span>{user?.nickname}</p>
       </section>
     </header>
   );

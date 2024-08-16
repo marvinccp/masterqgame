@@ -82,7 +82,7 @@
   background: rgb(134, 208, 254);
   width: 95%;
   height: 40px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   border: none;
   outline: 1px solid rgba(163, 163, 163, 0.255);
 }
@@ -91,7 +91,7 @@
   width: 95%;
   height: 40px;
   text-indent: 10px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   border: none;
   outline: 1px solid rgba(163, 163, 163, 0.255);
 }
@@ -99,7 +99,7 @@
   width: 100%;
   height: 40px;
   text-indent: 10px;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   border: none;
   outline: 1px solid rgba(163, 163, 163, 0.255);
 }
@@ -112,12 +112,13 @@
   border: none;
   outline: 1px solid rgba(163, 163, 163, 0.255);
   background: rgba(252, 167, 76, 0.876);
+  font-size: 1rem;
 }
 .login_form .input_login_form {
   width: 95%;
   height: 40px;
   text-indent: 10px;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   border: none;
   outline: 1px solid rgba(163, 163, 163, 0.255);
 }
