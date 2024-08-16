@@ -12,12 +12,12 @@ const useResume = () => {
      const [state, dispatch] = useReducer(gameResumeReducer, initialState);
 
      useEffect(() => {
-       const points = JSON.parse(localStorage.getItem("points"));
+       const points = JSON.parse(sessionStorage.getItem("points"));
        if (points) {
          dispatch({ type: "RESUME", payload: points });
        }
        console.log(points);
-     }, [state.loading]);
+     }, []);
 
      //se crea una matriz donde esten los rangos y la calificación
      const rewardMap = {

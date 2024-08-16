@@ -5,7 +5,7 @@ import styles from "@/styles/Home.module.css";
 import { useRouter } from "next/router";
 
 const useGame = () => {
-  const router = useRouter()
+  const router = useRouter();
   const initialState = {
     category: null,
     end: false,
@@ -18,12 +18,11 @@ const useGame = () => {
     show: false,
     optionError: "",
     transition: false,
-    messageLevel:''
+    messageLevel: "",
   };
-
   const [state, dispatch] = useReducer(gameReducer, initialState);
   const [data, setData] = useState([]);
-  
+console.log(state.points);
   useEffect(() => {
     const fetchData = async () => {
       const res = await getData();
@@ -37,13 +36,12 @@ const useGame = () => {
   const questionsData = data;
 
   //level questions
-  const questionsLevel = questionsData.filter(
-    (questions) => questions.category === state.category
-  ).slice(0,3)
+  const questionsLevel = questionsData
+    .filter((questions) => questions.category === state.category)
+    .slice(0, 3);
 
-  //localStorage
   useEffect(() => {
-    localStorage.setItem(
+    sessionStorage.setItem(
       "points",
       JSON.stringify({
         points: state.points,
@@ -104,10 +102,13 @@ const useGame = () => {
 
     if (nivelMessages[state.actualQuestion]) {
       console.log(nivelMessages[state.actualQuestion]);
-      dispatch({ type: "TRANSITION", payload: nivelMessages[state.actualQuestion]});
-      setTimeout(()=>{
-        dispatch({ type: "CLOSE_TRANSITION"});
-      }, 4000)
+      dispatch({
+        type: "TRANSITION",
+        payload: nivelMessages[state.actualQuestion],
+      });
+      setTimeout(() => {
+        dispatch({ type: "CLOSE_TRANSITION" });
+      }, 4000);
     }
     if (state.actualQuestion === questionsLevel.length - 1) {
       setTimeout(() => {
@@ -160,7 +161,7 @@ const useGame = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    router.push("/"); 
+    router.push("/");
   };
 
   return {
@@ -173,12 +174,13 @@ const useGame = () => {
     actualQuestion: state.actualQuestion,
     disabled: state.disabled,
     questionsLevel,
-    transition:state.transition,
-    messageLevel:state.messageLevel,
+    transition: state.transition,
+    messageLevel: state.messageLevel,
     starGame,
     handleChange,
     handleAnswer,
-    handleLogout
+    handleLogout,
+    correct: state.correct,
   };
 };
 export default useGame;

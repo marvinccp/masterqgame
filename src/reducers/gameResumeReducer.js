@@ -8,5 +8,6 @@ export const gameResumeReducer = (state, action) => {
         questionsNumber: action.payload.questions,
         loading: false,
       };
+    
   }
 };

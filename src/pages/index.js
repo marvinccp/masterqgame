@@ -53,9 +53,9 @@ const router = useRouter()
       const token = response.data.token;
       const user = response.data.player
       if (response.status === 200) {
+        router.push('/game')
         localStorage.setItem("token", token);
         localStorage.setItem('user', JSON.stringify(user))
-        router.push('/game')
       }
     } catch (error) {
       if (error.response?.data === "Wrong pass") {

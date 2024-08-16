@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 export const Header = ({}) => {
   const [user, setUser] = useState({});
-  console.log(user);
+  console.table(user);
   const { handleLogout } = useGame();
   const router = useRouter();
 
@@ -34,7 +34,7 @@ export const Header = ({}) => {
       </section>
       <section>
       {
-  <p className={style.welcome_message}>Bienvenid@: <span>{user.nickname}</span></p>
+  <p className={style.welcome_message}>Bienvenid@: <span>{user?.nickname}</span></p>
 }
       </section>
     </header>
