@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from 'axios';
+
 import styles from "./Login.module.css";
+
 import { RegisterModal } from "../register-modal/RegisterModal";
 import { RegisterForm } from "../register/RegisterForm";
 import Image from "next/image";
@@ -18,7 +20,6 @@ export const Login = ({ handleLogin }) => {
     password: "",
   });
 
-  console.log(handleLogin);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,17 +29,14 @@ export const Login = ({ handleLogin }) => {
     }));
   };
 
-  console.log(formData);
   const loginData = {
     password: formData.password,
   };
-  console.log(loginData);
   
   formData.player.includes("@")
   ? (loginData.email = formData.player)
   : (loginData.nickname = formData.player);
   
-  console.log(loginData);
 
 
   const handleSubmit = async (e) => {
@@ -66,7 +64,6 @@ export const Login = ({ handleLogin }) => {
       <section className={styles.login_register_container}>
         <div className={styles.logo_container}>
         <Image
-        onClick={() => router.push("/")}
         src="/images/mq_1.png"
         alt="logo-white"
         width={250}
