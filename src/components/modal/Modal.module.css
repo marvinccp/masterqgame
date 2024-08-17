@@ -189,7 +189,7 @@
 .selected {
   /* background: rgb(255, 0, 247); */
   outline: white;
-  background-image: url("../../../public/icons/cursor.png");
+  background-image: url("../../../public/icons/drag.png");
   background-position: calc(98% - 2%);
   background-repeat: no-repeat;
   background-size: 20px;
