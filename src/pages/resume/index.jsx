@@ -55,7 +55,9 @@ const Index = ({ children }) => {
         </section>
       ) : (
         <section className={styles.zombie}>
-          <h1>{pointsReward[rewardInfo]?.text}</h1>
+          <h1 style={{
+            fontSize:'1rem'
+          }} className={start.className}>{pointsReward[rewardInfo]?.text}</h1>
           <Image
             src={pointsReward[rewardInfo]?.img}
             width={200}
@@ -66,6 +68,8 @@ const Index = ({ children }) => {
           <Link className={styles.link} href={"/game"}>
             <button className={styles.new_game_button}>New Game</button>
           </Link>
+          <button className={styles.logout_button}  onClick={handleLogout}>logout</button>
+
         </section>
       )}
     </>
