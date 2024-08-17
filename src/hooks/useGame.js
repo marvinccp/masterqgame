@@ -38,7 +38,7 @@ console.log(state.points);
   //level questions
   const questionsLevel = questionsData
     .filter((questions) => questions.category === state.category)
-    .slice(0, 30);
+    .slice(0, 50);
 
   useEffect(() => {
     sessionStorage.setItem(

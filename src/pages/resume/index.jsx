@@ -26,8 +26,8 @@ const Index = ({ children }) => {
           <div className={styles.resume}>
             <h2
               className={start.className}
-              style={{ color: "black", fontSize: "1.5rem", lineHeight: "2rem" }}
-            >{`${correct} Correct of ${questionsNumber.length} Questions`}</h2>
+              style={{marginTop:'20px', color: "black", fontSize: "1.1rem", lineHeight: "1.2rem" }}
+            >{`${correct} of ${questionsNumber.length} Questions`}</h2>
             <h2
               style={{ color: "green", fontSize: "1.2rem" }}
               className={start.className}
@@ -36,8 +36,8 @@ const Index = ({ children }) => {
           <h1>{pointsReward[rewardInfo]?.text}</h1>
           <Image
             src={pointsReward[rewardInfo]?.img}
-            width={200}
-            height={200}
+            width={150}
+            height={150}
             alt="reward"
             className={styles.image}
           />

@@ -77,9 +77,9 @@ const Home = () => {
                   {answer.answerText}
                 </button>
               ))}
-              <div
+              {/* <div
                 style={{
-                  marginTop: "50px",
+                  marginTop: "20px",
                   position: "aboslute",
                   color: "black",
                   background: "white",
@@ -92,7 +92,7 @@ const Home = () => {
                 }}
               >
                 {actualQuestion + 1}
-              </div>
+              </div> */}
             </section>
           </section>
         )}

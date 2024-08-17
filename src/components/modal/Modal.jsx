@@ -27,7 +27,7 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
         <div className={styles.option_error}>
           <p
             className={start.className}
-            style={{ color: "red", fontSize: "1rem", lineHeight: "2rem" }}
+
           >
             {optionError}
           </p>

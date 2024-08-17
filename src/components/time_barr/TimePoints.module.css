@@ -6,7 +6,7 @@
     align-items: center;
     margin: 0 auto;
     background-color: #46cec7;
-    padding: 0 50px 0 50px;
+    padding: 25px 25px 0 25px;
 }
 
 .gold {
@@ -14,29 +14,19 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat; */
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: rgb(239, 215, 79);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     /* padding-top: 5px; */
     border: none;
     border-radius: 15px;
     margin-top: 25px;
-    border: solid rgb(239, 215, 79) 7px;
-    border-radius: 50%;
-
-
-     text-shadow: 1px 1px 1px #9191913b,
-     1px 2px 1px #91919158,
-     1px 3px 1px #91919102,
-     1px 4px 1px #919191,
-     1px 5px 1px #9191911b,
-     1px 1px 1px rgba(16, 16, 16, 0.087),
-     1px 3px 1px rgba(16, 16, 16, 0.049);
-     
+    border: solid rgb(239, 215, 79) 2px;
+    border-radius: 50%; 
 }
 
 .clock {
@@ -44,26 +34,17 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat; */
-     width: 80px;
-     height: 80px;
+     width: 60px;
+     height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: red;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     /* padding-top: 10px; */
         margin-top: 25px;
-        border: solid red 7px;
+        border: solid red 2px;
         border-radius: 50%;
-
-
-        text-shadow: 1px 1px 1px #2d2d2d3b,
-        1px 2px 1px #91919158,
-        1px 3px 1px #91919102,
-        1px 4px 1px #919191,
-        1px 5px 1px #9191911b,
-        1px 1px 1px rgba(16, 16, 16, 0.087),
-        1px 3px 1px rgba(16, 16, 16, 0.049);
 
 }
 

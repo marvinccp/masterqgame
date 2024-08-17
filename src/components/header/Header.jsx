@@ -16,8 +16,8 @@ export const Header = ({}) => {
         <Image
           src="/images/mq_1.png"
           alt="logo-white"
-          width={80}
-          height={80}
+          width={85}
+          height={85}
           className={style.image_}
         />
       </section>
