@@ -39,7 +39,8 @@ const Home = () => {
     transition,
     messageLevel,
     playOnCorrect,
-    playOnStart
+    playOnStart,
+    playOnSelect
   } = useGame();
 
   useEffect(() => {
@@ -59,6 +60,7 @@ const Home = () => {
         volume={0.3}
         playOnCorrect={playOnCorrect}
         playOnStart={playOnStart}
+        playOnSelect={playOnSelect}
       />
       <GameLayout name="Home" />
 

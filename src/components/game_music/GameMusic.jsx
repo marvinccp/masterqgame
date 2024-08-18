@@ -6,6 +6,7 @@ export const GameMusic = ({
   volume = 1,
   playOnCorrect,
   playOnStart,
+  playOnSelect
 }) => {
   const audioRef = useRef(null);
 
@@ -14,7 +15,15 @@ export const GameMusic = ({
     if (audio) {
       audio.volume = volume;
 
-      if (playOnStart) {
+      if (playOnSelect) {
+        audio.src = "/sounds/bip.mp3";
+        audio.currentTime = 0;
+        audio
+          .play()
+          .catch((error) =>
+            console.error("Error al reproducir el audio:", error)
+          );
+      } else if (playOnStart) {
         audio.src = "/sounds/ok_3.mp3";
         audio.currentTime = 0;
         audio
@@ -33,7 +42,7 @@ export const GameMusic = ({
         audio.currentTime = 0;
       }
     }
-  }, [isPlaying, volume, playOnCorrect, playOnStart]);
+  }, [isPlaying, volume, playOnCorrect, playOnStart, playOnSelect]);
 
   useEffect(() => {
     const audio = audioRef.current;

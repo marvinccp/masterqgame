@@ -24,6 +24,7 @@ const useGame = () => {
   const [data, setData] = useState([]);
   const [playOnCorrect, setPlayOnCorrect] = useState(false);
   const [playOnStart, setPlayOnStart] = useState(false);
+  const [playOnSelect, setPlayOnSelect] = useState(false);
 
 
   useEffect(() => {
@@ -170,7 +171,11 @@ const useGame = () => {
   //escoger nivel de dificultad
   const handleChange = (value) => {
     dispatch({ type: "CATEGORY", payload: value });
+    setPlayOnSelect(true)
     // setCategory(value);
+    setTimeout(() => {
+      setPlayOnSelect(false); 
+    }, 150); 
   };
 
   //iniciar el juego luego de escoger nivel de dificultad
@@ -204,7 +209,8 @@ const useGame = () => {
     handleAnswer,
     correct: state.correct,
     playOnCorrect,
-    playOnStart
+    playOnStart,
+    playOnSelect
   };
 };
 export default useGame;
