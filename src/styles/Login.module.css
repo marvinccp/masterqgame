@@ -80,11 +80,15 @@
 
 .submit_form_button {
   background: rgb(134, 208, 254);
-  width: 95%;
+  width: 100%;
   height: 40px;
   font-size: 1rem;
   border: none;
   outline: 1px solid rgba(163, 163, 163, 0.255);
+  cursor: pointer;
+}
+.submit_form_button:hover {
+  background: rgb(81, 187, 253);
 }
 
 .register_form .input_login_form {
@@ -107,15 +111,21 @@
   color: rgba(66, 66, 66, 0.479);
 }
 .create_form_button{
-    width: 95%;
+    width: 100%;
   height: 40px;
   border: none;
   outline: 1px solid rgba(163, 163, 163, 0.255);
   background: rgba(252, 167, 76, 0.876);
   font-size: 1rem;
+  cursor: pointer;
+}
+.create_form_button:hover{
+
+  background: rgba(250, 156, 56, 0.876);
+
 }
 .login_form .input_login_form {
-  width: 95%;
+  width: 100%;
   height: 40px;
   text-indent: 10px;
   font-size: 1.1rem;
