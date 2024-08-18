@@ -1,8 +1,10 @@
 import { useState } from "react";
 import styles from "../../styles/Login.module.css";
-import axios from 'axios';
+import axios from "axios";
 
 export const RegisterForm = ({ closeModal }) => {
+  const [resErrorMessage, setResErrorMessage] = useState("");
+  const [resSuccesMessage, setResSuccesMessage] = useState("");
   const [formData, setFormData] = useState({
     nickname: "",
     password: "",
@@ -19,22 +21,26 @@ export const RegisterForm = ({ closeModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    closeModal();
+
     try {
       const response = await axios.post(
         "https://masterquestionback-production.up.railway.app/game/players",
         formData
       );
       console.log(response);
-      if (response.status ===  201) {
-        console.log(response.data);
+      if (response.status === 201) {
+        setResSuccesMessage(response.data.message);
+        setResErrorMessage("");
+        setTimeout(() => {
+          closeModal();
+        }, 3000);
       }
     } catch (error) {
-      if(error.response && error.response.status === 400){
-        console.log(error.response);
-
-      }else{
-        console.log('otro error');
+      if (error.response && error.response.status === 400) {
+        setResErrorMessage(error.response.data.error);
+        setResSuccesMessage("");
+      } else {
+        console.log("otro error");
       }
     }
   };
@@ -42,6 +48,24 @@ export const RegisterForm = ({ closeModal }) => {
   return (
     <div className={styles.register_container}>
       <form className={styles.register_form} onSubmit={handleSubmit}>
+        <p
+          style={{
+            position: "absolute",
+            top: "-15px",
+            color: "lightcoral",
+          }}
+        >
+          {resErrorMessage}
+        </p>
+        <p
+          style={{
+            position: "absolute",
+            top: "-15px",
+            color: "#28a745",
+          }}
+        >
+          {resSuccesMessage}
+        </p>
         <input
           onChange={handleChange}
           name="nickname"
