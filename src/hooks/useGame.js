@@ -175,7 +175,7 @@ const useGame = () => {
     // setCategory(value);
     setTimeout(() => {
       setPlayOnSelect(false); 
-    }, 150); 
+    },200); 
   };
 
   //iniciar el juego luego de escoger nivel de dificultad
