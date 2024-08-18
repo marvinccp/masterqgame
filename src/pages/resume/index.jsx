@@ -27,11 +27,11 @@ const Index = ({ children }) => {
             <h2
               className={start.className}
               style={{marginTop:'20px', color: "black", fontSize: "1.1rem", lineHeight: "1.2rem" }}
-            >{`${correct} of ${questionsNumber.length} Questions`}</h2>
+            >{`${correct} De ${questionsNumber.length} Preguntas`}</h2>
             <h2
               style={{ color: "green", fontSize: "1.2rem" }}
               className={start.className}
-            >{`You have ${points} points`}</h2>
+            >{`Has Ganado ${points} puntos`}</h2>
           </div>
           <h1>{pointsReward[rewardInfo]?.text}</h1>
           <Image
@@ -43,7 +43,7 @@ const Index = ({ children }) => {
           />
           <section className={styles.buttons_container}>
           <Link className={styles.link} href={"/game"}>
-            <button className={styles.new_game_button}>New Game</button>
+            <button className={styles.new_game_button}>Nuevo Juego</button>
           </Link>
           <button className={styles.logout_button}  onClick={handleLogout}>logout</button>
           </section>

@@ -122,7 +122,7 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
               className={styles.start}
               onClick={() => starGame(selectedOption)}
             >
-              LET`S GO
+              JUGAR!!
             </button>
           </div>
         </div>
