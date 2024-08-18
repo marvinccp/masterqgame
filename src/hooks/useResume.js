@@ -25,7 +25,6 @@ const useResume = () => {
        if (points) {
          dispatch({ type: "RESUME", payload: points });
        }
-       console.log(points);
      }, []);
 
      //se crea una matriz donde esten los rangos y la calificación
@@ -58,7 +57,6 @@ los puntos son menores que la próxima key . . .
        );
      });
 
-     console.log(reward);
 
      //asiganamos una variable que contiene el valor de la key
 

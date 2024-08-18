@@ -1,64 +1,56 @@
 .container {
-    display: flex;
-    width: 100%;
-    height: 10vh;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    background-color: #46cec7;
-    padding: 25px 25px 0 25px;
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  background-color: #46cec7;
+  padding: 25px 80px 0 80px;
 }
 
 .gold {
-    /* background-image: url('/icons/gold.png');
+  /* background-image: url('/icons/gold.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat; */
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(239, 215, 79);
-    font-size: 1.4rem;
-    /* padding-top: 5px; */
-    border: none;
-    border-radius: 15px;
-    margin-top: 25px;
-    border: solid rgb(239, 215, 79) 2px;
-    border-radius: 50%; 
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(239, 215, 79);
+  font-size: 1.2rem;
+  /* padding-top: 5px; */
+  border: none;
+  border-radius: 15px;
+  margin-top: 25px;
+  border: solid rgb(239, 215, 79) 2px;
+  border-radius: 50%;
 }
 
 .clock {
-    /* background-image: url('/icons/clock.png');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat; */
-     width: 60px;
-     height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: red;
-    font-size: 1.4rem;
-    /* padding-top: 10px; */
-        margin-top: 25px;
-        border: solid red 2px;
-        border-radius: 50%;
-
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 25px;
+  border: solid red 2px;
+  border-radius: 50%;
 }
 
-@media(min-width: 768px) {
-
-    .container {
-        display: flex;
-        width: 100%;
-        height: 10vh;
-        justify-content: space-around;
-        align-items: center;
-        margin: 0 auto;
-        background-color: #46cec7;
-        padding: 0 50px 0 50px;
-    }
-
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #46cec7;
+    padding: 0 50px 0 50px;
+  }
 }

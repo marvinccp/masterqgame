@@ -19,7 +19,6 @@ const router = useRouter()
     password: "",
   });
 
-  console.log(handleLogin);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,17 +28,14 @@ const router = useRouter()
     }));
   };
 
-  console.log(formData);
   const loginData = {
     password: formData.password,
   };
-  console.log(loginData);
   
   formData.player.includes("@")
   ? (loginData.email = formData.player)
   : (loginData.nickname = formData.player);
   
-  console.log(loginData);
 
 
   const handleSubmit = async (e) => {
@@ -61,7 +57,6 @@ const router = useRouter()
       if (error.response?.data === "Wrong pass") {
         console.log("Wrong Pass");
       }
-      console.log(error.message);
     }
   };
   return (

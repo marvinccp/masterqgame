@@ -2,10 +2,9 @@ import { getData } from "@/helpers/data";
 import { gameReducer } from "@/reducers/gameReducer";
 import { useReducer, useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
-import { useRouter } from "next/router";
+import confetti from "canvas-confetti";
 
 const useGame = () => {
-  const router = useRouter();
   const initialState = {
     category: null,
     end: false,
@@ -22,7 +21,6 @@ const useGame = () => {
   };
   const [state, dispatch] = useReducer(gameReducer, initialState);
   const [data, setData] = useState([]);
-console.log(state.points);
   useEffect(() => {
     const fetchData = async () => {
       const res = await getData();
@@ -92,23 +90,44 @@ console.log(state.points);
   */
 
   const nivelMessages = {
-    5: "Ahora vamos al Nivel 2",
-    14: "Ahora vamos al Nivel 3",
-    20: "Ahora vamos al Nivel 4",
+    5: "Nivel 2",
+    14: "Nivel 3",
+    20: "Nivel 4",
+  };
+
+  const confettiLevel = (e) => {
+    //cooordenadas del botón de respuesta correcta
+    const coord = e.target.getBoundingClientRect();
+
+    //fecto de conffeti
+    confetti({
+      particleCount: 70,
+      spread: 120,
+      startVelocity: 30,
+      decay: 0.9,
+      gravity: 2,
+      colors: ["#FFD700", "#FF4500", "#00BFFF"],
+      scalar: 0.8,
+      shapes: ["circle"],
+      angle: 90,
+      zIndex: 1000,
+      origin: {
+        x: (coord.left + coord.width / 2) / window.innerWidth,
+        y: (coord.top + coord.height / 2) / window.innerHeight,
+      },
+    });
   };
 
   const nextQuestion = (e) => {
     console.log(nivelMessages[state.actualQuestion]);
-
     if (nivelMessages[state.actualQuestion]) {
-      console.log(nivelMessages[state.actualQuestion]);
       dispatch({
         type: "TRANSITION",
         payload: nivelMessages[state.actualQuestion],
       });
       setTimeout(() => {
         dispatch({ type: "CLOSE_TRANSITION" });
-      }, 4000);
+      }, 5000);
     }
     if (state.actualQuestion === questionsLevel.length - 1) {
       setTimeout(() => {
@@ -135,6 +154,7 @@ console.log(state.points);
       dispatch({ type: "CORRECT_ANSWER" });
       // setPoints(points + 2);
       // setCorrect(correct + 1);
+      confettiLevel(e);
     } else {
       e.target.classList = styles.incorrect;
     }
@@ -158,7 +178,6 @@ console.log(state.points);
     }
   };
 
-  
   return {
     end: state.end,
     start: state.start,

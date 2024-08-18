@@ -6,6 +6,13 @@ import { useRouter } from "next/router";
 import useGame from "@/hooks/useGame";
 import { useEffect, useState } from "react";
 
+
+
+
+import { Press_Start_2P } from "next/font/google";
+import { GameMusic } from "@/components/game_music/GameMusic";
+const pixel = Press_Start_2P({ subsets: ["latin"], weight: "400" });
+
 const Home = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -50,12 +57,13 @@ const Home = () => {
 
   return (
     <>
+    <GameMusic isPlaying={start && !end} volume={0.3} />
       <GameLayout  name="Home" />
 
       <div className={styles.start_blank}>
         {transition && (
           <div className={styles.message}>
-            <h2>{messageLevel}</h2>
+            <h2 className={pixel.className}>{messageLevel}</h2>
           </div>
         )}{" "}
         {start && <TimeBarr points={points} time={time} />}

@@ -8,7 +8,6 @@ export const RegisterForm = ({ closeModal }) => {
     password: "",
     email: "",
   });
-  console.table(formData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
