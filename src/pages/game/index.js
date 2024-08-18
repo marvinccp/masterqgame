@@ -6,9 +6,6 @@ import { useRouter } from "next/router";
 import useGame from "@/hooks/useGame";
 import { useEffect, useState } from "react";
 
-
-
-
 import { Press_Start_2P } from "next/font/google";
 import { GameMusic } from "@/components/game_music/GameMusic";
 const pixel = Press_Start_2P({ subsets: ["latin"], weight: "400" });
@@ -41,6 +38,8 @@ const Home = () => {
     handleAnswer,
     transition,
     messageLevel,
+    playOnCorrect,
+    playOnStart
   } = useGame();
 
   useEffect(() => {
@@ -53,12 +52,15 @@ const Home = () => {
     return null;
   }
 
-  
-
   return (
     <>
-    <GameMusic isPlaying={start && !end} volume={0.3} />
-      <GameLayout  name="Home" />
+      <GameMusic
+        isPlaying={start && !end}
+        volume={0.3}
+        playOnCorrect={playOnCorrect}
+        playOnStart={playOnStart}
+      />
+      <GameLayout name="Home" />
 
       <div className={styles.start_blank}>
         {transition && (

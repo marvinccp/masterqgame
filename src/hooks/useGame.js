@@ -3,6 +3,7 @@ import { gameReducer } from "@/reducers/gameReducer";
 import { useReducer, useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
 import confetti from "canvas-confetti";
+import { GameMusic } from "@/components/game_music/GameMusic";
 
 const useGame = () => {
   const initialState = {
@@ -21,6 +22,10 @@ const useGame = () => {
   };
   const [state, dispatch] = useReducer(gameReducer, initialState);
   const [data, setData] = useState([]);
+  const [playOnCorrect, setPlayOnCorrect] = useState(false);
+  const [playOnStart, setPlayOnStart] = useState(false);
+
+
   useEffect(() => {
     const fetchData = async () => {
       const res = await getData();
@@ -119,7 +124,10 @@ const useGame = () => {
   };
 
   const nextQuestion = (e) => {
-    console.log(nivelMessages[state.actualQuestion]);
+    setPlayOnStart(false);
+    setTimeout(() => {
+      setPlayOnCorrect(false);
+    }, 200);
     if (nivelMessages[state.actualQuestion]) {
       dispatch({
         type: "TRANSITION",
@@ -150,7 +158,7 @@ const useGame = () => {
   const correctAnswer = (isCorrect, e) => {
     if (isCorrect) {
       e.target.classList = styles.correct;
-
+      setPlayOnCorrect(true);
       dispatch({ type: "CORRECT_ANSWER" });
       // setPoints(points + 2);
       // setCorrect(correct + 1);
@@ -172,6 +180,7 @@ const useGame = () => {
       // setOptionError("Choose Level!!");
     } else {
       dispatch({ type: "START_GAME" });
+      setPlayOnStart(true)
       // setTime(10);
       // setShow(false);
       // setStart(true);
@@ -194,6 +203,8 @@ const useGame = () => {
     handleChange,
     handleAnswer,
     correct: state.correct,
+    playOnCorrect,
+    playOnStart
   };
 };
 export default useGame;

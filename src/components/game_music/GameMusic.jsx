@@ -1,36 +1,51 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
-export const GameMusic = ({ isPlaying, onEnded , volume = 1}) => {
+export const GameMusic = ({
+  isPlaying,
+  onEnded,
+  volume = 1,
+  playOnCorrect,
+  playOnStart,
+}) => {
   const audioRef = useRef(null);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
       audio.volume = volume;
-      if (isPlaying) {
-        audio.play().catch(error => {
+
+      if (playOnStart) {
+        audio.src = "/sounds/ok_3.mp3";
+        audio.currentTime = 0;
+        audio
+          .play()
+          .catch((error) =>
+            console.error("Error al reproducir el audio:", error)
+          );
+      } else if (isPlaying && playOnCorrect) {
+        audio.src = "/sounds/ok_2.mp3";
+        audio.currentTime = 0;
+        audio.play().catch((error) => {
           console.error("Error al reproducir el audio:", error);
         });
-      } else {
+      } else if (!isPlaying) {
         audio.pause();
+        audio.currentTime = 0;
       }
     }
-  }, [isPlaying, volume]);
+  }, [isPlaying, volume, playOnCorrect, playOnStart]);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (onEnded) {
-      audio.addEventListener('ended', onEnded);
+      audio.addEventListener("ended", onEnded);
     }
     return () => {
       if (onEnded) {
-        audio.removeEventListener('ended', onEnded);
+        audio.removeEventListener("ended", onEnded);
       }
     };
   }, [onEnded]);
 
-  return (
-    <audio ref={audioRef} src="/sounds/game_5.mp3" type="audio/mp3"  loop />
-  );
+  return <audio ref={audioRef} src="/sounds/ok_2.mp3" type="audio/mp3" />;
 };
-
