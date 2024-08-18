@@ -16,7 +16,7 @@ export const GameMusic = ({
       audio.volume = volume;
 
       if (playOnSelect) {
-        audio.src = "/sounds/bip.mp3";
+        audio.src = "/sounds/bip_2.mp3";
         audio.currentTime = 0;
         audio
           .play()
