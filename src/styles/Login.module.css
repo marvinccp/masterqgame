@@ -74,6 +74,7 @@
   padding: 15px;
   width: 100%;
   gap: 10px;
+  position: relative;
 }
 .logo_container .image_ {
   filter: drop-shadow(1px 1px 1.2px rgb(99, 99, 99));
