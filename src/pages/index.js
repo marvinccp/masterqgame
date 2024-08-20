@@ -141,7 +141,7 @@ const Login = () => {
               value={"Login"}
               type="submit"
             />
-            <button className={styles.create_form_button} onClick={openModal}>
+            <button type="button" className={styles.create_form_button} onClick={openModal}>
               Crear cuenta
             </button>
           </form>
