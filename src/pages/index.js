@@ -144,8 +144,22 @@ const Login = () => {
             <button type="button" className={styles.create_form_button} onClick={openModal}>
               Crear cuenta
             </button>
+            <p
+              style={{
+                position: "absolute",
+                bottom: "-20px",
+                color: "lightblack",
+                fontSize:'0.7rem'
+              }}
+            >
+              By TEV STUDIO
+            </p>
+
+
           </form>
+          
         </div>
+      
       </section>
       <>
         {isModalOpen && (
