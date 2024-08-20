@@ -17,6 +17,15 @@
   position: relative;
   width: 80%;
   max-width: 500px;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.modalOpen {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .closeButton {

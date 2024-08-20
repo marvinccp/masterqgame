@@ -138,7 +138,7 @@ const Login = () => {
             />
             <input
               className={styles.submit_form_button}
-              value={"Login"}
+              value={"Continuar"}
               type="submit"
             />
             <button type="button" className={styles.create_form_button} onClick={openModal}>
