@@ -3,7 +3,8 @@ import { gameReducer } from "@/reducers/gameReducer";
 import { useReducer, useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
 import confetti from "canvas-confetti";
-import { GameMusic } from "@/components/game_music/GameMusic";
+// import { GameMusic } from "@/components/game_music/GameMusic";
+import axios from "axios";
 
 const useGame = () => {
   const initialState = {
@@ -20,13 +21,13 @@ const useGame = () => {
     transition: false,
     messageLevel: "",
   };
+
   const [state, dispatch] = useReducer(gameReducer, initialState);
+  const [player, setPlayer] = useState({});
   const [data, setData] = useState([]);
   const [playOnCorrect, setPlayOnCorrect] = useState(false);
   const [playOnStart, setPlayOnStart] = useState(false);
   const [playOnSelect, setPlayOnSelect] = useState(false);
-
-
   useEffect(() => {
     const fetchData = async () => {
       const res = await getData();
@@ -42,7 +43,7 @@ const useGame = () => {
   //level questions
   const questionsLevel = questionsData
     .filter((questions) => questions.category === state.category)
-    .slice(0, 30);
+    .slice(0, 3);
 
   useEffect(() => {
     sessionStorage.setItem(
@@ -54,6 +55,40 @@ const useGame = () => {
       })
     );
   }, [state.points, state.correct, questionsLevel]);
+
+  useEffect(() => {
+    const player = JSON.parse(localStorage.getItem("user"));
+    if (!player) {
+      return;
+    }
+    setPlayer(player);
+  }, []);
+
+  const updateTotalPoints = async (playerId) => {
+
+    if (!playerId) {
+      throw new Error("playerId o points no son válidos");
+    }
+    const sessionData = JSON.parse(sessionStorage.getItem("points"));
+    const sessionPoints = sessionData?.points;
+  
+    console.log(playerId, sessionPoints);
+
+    try {
+      const response = await axios.patch(
+        "https://masterquestionback-production.up.railway.app/game/players/points",
+        { playerId, sessionPoints }
+      );
+      if(!response){
+        return
+      }
+    } catch (error) {
+      console.error(
+        "Error al actualizar los puntos:",
+        error.response?.data || error.message
+      );
+    }
+  };
 
   // en caso de no responder alguna pregunta
   useEffect(() => {
@@ -75,13 +110,21 @@ const useGame = () => {
         state.actualQuestion === questionsLevel.length - 1
       ) {
         dispatch({ type: "END_GAME" });
+        updateTotalPoints(player.id);
         // setEnd(true);
         // setTime(null);
       }
     }, 1000);
 
     return () => clearInterval(gameInterval);
-  }, [state.time, state.actualQuestion, state.start, questionsLevel.length]);
+  }, [
+    state.time,
+    state.actualQuestion,
+    state.start,
+    questionsLevel.length,
+    player.id,
+    state.points,
+  ]);
 
   // al responder una pregunta
   const handleAnswer = (isCorrect, e) => {
@@ -141,6 +184,7 @@ const useGame = () => {
     if (state.actualQuestion === questionsLevel.length - 1) {
       setTimeout(() => {
         dispatch({ type: "END_GAME" });
+        updateTotalPoints(player.id);
         // setTime(null);
         // setEnd(true);
       }, 2500);
@@ -171,11 +215,11 @@ const useGame = () => {
   //escoger nivel de dificultad
   const handleChange = (value) => {
     dispatch({ type: "CATEGORY", payload: value });
-    setPlayOnSelect(true)
+    setPlayOnSelect(true);
     // setCategory(value);
     setTimeout(() => {
-      setPlayOnSelect(false); 
-    },200); 
+      setPlayOnSelect(false);
+    }, 200);
   };
 
   //iniciar el juego luego de escoger nivel de dificultad
@@ -185,7 +229,7 @@ const useGame = () => {
       // setOptionError("Choose Level!!");
     } else {
       dispatch({ type: "START_GAME" });
-      setPlayOnStart(true)
+      setPlayOnStart(true);
       // setTime(10);
       // setShow(false);
       // setStart(true);
@@ -210,7 +254,7 @@ const useGame = () => {
     correct: state.correct,
     playOnCorrect,
     playOnStart,
-    playOnSelect
+    playOnSelect,
   };
 };
 export default useGame;

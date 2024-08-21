@@ -13,7 +13,7 @@ const useResume = () => {
 
 
      const initialState = {
-       points: null,
+       points: 0,
        correct: 0,
        questionsNumber: [],
        loading: true,
@@ -76,8 +76,6 @@ los puntos son menores que la próxima key . . .
      };
 
 
-
-
   return {
     rewardInfo,
     pointsReward,
@@ -85,7 +83,7 @@ los puntos son menores que la próxima key . . .
     loading: state.loading,
     correct: state.correct,
     questionsNumber: state.questionsNumber,
-    handleLogout
+    handleLogout,
   };
 }
 
