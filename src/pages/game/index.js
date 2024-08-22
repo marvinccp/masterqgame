@@ -1,13 +1,15 @@
-import styles from "../../styles/Home.module.css";
-import GameLayout from "@/layouts/GameLayout";
 import { TimeBarr } from "@/components/time_barr/TimeBarr";
 import { Modal } from "@/components/modal/Modal";
-import { useRouter } from "next/router";
-import useGame from "@/hooks/useGame";
-import { useEffect, useState } from "react";
-
-import { Press_Start_2P } from "next/font/google";
 import { GameMusic } from "@/components/game_music/GameMusic";
+
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { Press_Start_2P } from "next/font/google";
+
+import GameLayout from "@/layouts/GameLayout";
+import useGame from "@/hooks/useGame";
+import styles from "@/styles/Home.module.css";
+
 const pixel = Press_Start_2P({ subsets: ["latin"], weight: "400" });
 
 const Home = () => {
@@ -40,7 +42,7 @@ const Home = () => {
     messageLevel,
     playOnCorrect,
     playOnStart,
-    playOnSelect
+    playOnSelect,
   } = useGame();
 
   useEffect(() => {

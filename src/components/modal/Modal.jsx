@@ -27,7 +27,6 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
         <div className={styles.option_error}>
           <p
             className={start.className}
-
           >
             {optionError}
           </p>
@@ -36,13 +35,13 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
           <button onClick={handleLogout} className={styles.logout_button}>
             logout
           </button>
-          <Image
+          {/* <Image
             className={styles.image}
             src="/images/mq_1.png"
             alt="logo-white"
             width={140}
             height={140}
-          />
+          /> */}
           {/* <h3 className={styles.text}>
             Welcome!! Are you ready ? <br />
           </h3> */}
@@ -100,6 +99,27 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
             >
               Tecno
             </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className={`${styles.btnItem5} ${styles.item} ${
+                selectedOption === "Sensei" ? styles.selected : ""
+              }`}
+              onClick={() => {
+                handleChange("Sensei");
+                options("Sensei");
+              }}
+            >
+               <Image
+            className={styles.image5}
+            src="/icons/sensei-mode.png"
+            alt="logo-sensei"
+            width={70}
+            height={70}
+          />
+              Sensei
+            </motion.button>
+            
           </div>
           {/* <select
             onChange={handleChange}

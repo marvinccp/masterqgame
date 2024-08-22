@@ -62,5 +62,11 @@ export const gameReducer = (state, action) => {
         ...state,
         transition: false,
       };
+
+      case 'OPTION_SELECTED':
+        return {
+        ...state,
+        optionError: ''
+      }
   }
 };

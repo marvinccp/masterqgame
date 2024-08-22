@@ -43,7 +43,7 @@ const useGame = () => {
   //level questions
   const questionsLevel = questionsData
     .filter((questions) => questions.category === state.category)
-    .slice(0, 3);
+    .slice(0, 30);
 
   useEffect(() => {
     sessionStorage.setItem(
@@ -215,6 +215,8 @@ const useGame = () => {
   //escoger nivel de dificultad
   const handleChange = (value) => {
     dispatch({ type: "CATEGORY", payload: value });
+    dispatch({ type: "OPTION_SELECTED"});
+    
     setPlayOnSelect(true);
     // setCategory(value);
     setTimeout(() => {
