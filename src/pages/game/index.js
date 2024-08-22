@@ -43,6 +43,7 @@ const Home = () => {
     playOnCorrect,
     playOnStart,
     playOnSelect,
+    category,
   } = useGame();
 
   useEffect(() => {
@@ -66,15 +67,19 @@ const Home = () => {
       />
       <GameLayout name="Home" />
 
-      <div className={styles.start_blank}>
+      <div className={`${styles.start_blank}`}>
         {transition && (
-          <div className={styles.message}>
+          <div className={`${styles.message} }`}>
             <h2 className={pixel.className}>{messageLevel}</h2>
           </div>
         )}{" "}
-        {start && <TimeBarr points={points} time={time} />}
+        {start && <TimeBarr category={category} points={points} time={time} />}
         {start && (
-          <section className={styles.main}>
+          <section
+            className={`${styles.main} ${
+              category === "Sensei" && styles.sensei
+            }`}
+          >
             <section className={styles.question_container}>
               {/* Questions */}
               <span>{questionsLevel[actualQuestion]?.question}</span>

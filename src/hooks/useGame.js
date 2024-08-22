@@ -65,13 +65,12 @@ const useGame = () => {
   }, []);
 
   const updateTotalPoints = async (playerId) => {
-
     if (!playerId) {
       throw new Error("playerId o points no son válidos");
     }
     const sessionData = JSON.parse(sessionStorage.getItem("points"));
     const sessionPoints = sessionData?.points;
-  
+
     console.log(playerId, sessionPoints);
 
     try {
@@ -79,8 +78,8 @@ const useGame = () => {
         "https://masterquestionback-production.up.railway.app/game/players/points",
         { playerId, sessionPoints }
       );
-      if(!response){
-        return
+      if (!response) {
+        return;
       }
     } catch (error) {
       console.error(
@@ -139,9 +138,10 @@ const useGame = () => {
   */
 
   const nivelMessages = {
-    5: "Nivel 2",
-    14: "Nivel 3",
-    20: "Nivel 4",
+    6: "Nivel 2",
+    12: "Nivel 3",
+    18: "Nivel 4",
+    24: "Nivel 4",
   };
 
   const confettiLevel = (e) => {
@@ -215,8 +215,8 @@ const useGame = () => {
   //escoger nivel de dificultad
   const handleChange = (value) => {
     dispatch({ type: "CATEGORY", payload: value });
-    dispatch({ type: "OPTION_SELECTED"});
-    
+    dispatch({ type: "OPTION_SELECTED" });
+
     setPlayOnSelect(true);
     // setCategory(value);
     setTimeout(() => {
@@ -257,6 +257,7 @@ const useGame = () => {
     playOnCorrect,
     playOnStart,
     playOnSelect,
+    category: state.category,
   };
 };
 export default useGame;

@@ -4,13 +4,15 @@
   justify-content: center;
   align-items: center;
   padding: 6rem;
-  height: 70vh;
-  background: linear-gradient(#46cec7, rgb(35, 33, 179), rgba(57, 216, 81, 0.73));
+  height: 75vh;
+  background: linear-gradient(
+    #46cec7,
+    rgb(35, 33, 179),
+    rgba(57, 216, 81, 0.73)
+  );
   font-size: 1.5rem;
   color: aliceblue;
   width: 100%;
-
-  
 }
 
 .answer {
@@ -44,7 +46,6 @@
   font-size: 1.2rem;
 }
 
-
 .incorrect {
   width: 80vw;
   height: 60px;
@@ -77,18 +78,31 @@
   align-items: center;
 }
 
-
 .start_blank {
-
-  background: linear-gradient(#46cec7, rgb(35, 33, 179), rgba(57, 216, 81, 0.73));
+  background: linear-gradient(
+    #46cec7,
+    rgb(35, 33, 179),
+    rgba(57, 216, 81, 0.73)
+  );
   height: 85vh;
   width: 100%;
   position: relative;
 }
 
+.sensei {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem;
+  height: 75vh;
+  background: linear-gradient(#1f1f1f, rgb(54, 54, 54), rgb(18, 18, 18));
+  font-size: 1.5rem;
+  color: aliceblue;
+  width: 100%;
+}
 
-@media(min-width: 768px) {
-
+@media (min-width: 768px) {
   .incorrect {
     width: 45vw;
   }
@@ -104,20 +118,21 @@
   .main {
     font-size: 1.7rem;
   }
-
+  .sensei {
+    background: linear-gradient(#1f1f1f, rgb(54, 54, 54), rgb(18, 18, 18));
+  }
 }
 
-.message{
-    position: absolute;
-    background: transparent;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: "transparent";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-
-  }
-  
+.message {
+  position: absolute;
+  background: transparent;
+  top: 115px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: "transparent";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: .6rem;
+}
