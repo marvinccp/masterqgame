@@ -11,8 +11,8 @@
   position: relative;
 
   background-image: linear-gradient(
-      rgba(217, 216, 216, 0.962),
-      rgb(255, 255, 255)
+      rgba(217, 216, 216, 0.276),
+      rgba(255, 255, 255, 0.42)
     ),
     url("/images/fondo1.png");
   background-size: cover;
@@ -25,14 +25,14 @@
   height: 70px;
   margin: 5px 0;
   padding: 7px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(227, 227, 227);
+  background: rgb(252, 252, 252);
 }
 
 .answers_container {
@@ -51,22 +51,25 @@
   align-items: center;
   font-size: 1.2rem;
   margin-top: 90px;
-  height: 100px;
-  padding: 3px;
+  height: 110px;
+  padding: 0 10px;
   border-radius: 8px;
   font-weight: 600;
+  background: rgb(8, 186, 245);
+  color: white;
+  text-indent: 5px;
 }
 
 .incorrect {
   width: 80vw;
   height: 70px;
   margin: 5px 0;
-  background-color: rgb(211, 95, 72);
+  background-color: lightcoral;
   padding: 7px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   border: none;
   border-radius: 10px;
-  color: aliceblue;
+  color: rgb(255, 255, 255);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -79,10 +82,10 @@
   margin: 5px 0;
   background-color: rgb(80, 206, 78);
   padding: 7px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   border: none;
   border-radius: 10px;
-  color: aliceblue;
+  color: rgb(255, 255, 255);
   cursor: pointer;
   display: flex;
   justify-content: center;

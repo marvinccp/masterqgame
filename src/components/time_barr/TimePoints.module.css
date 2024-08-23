@@ -23,7 +23,8 @@
   border-radius: 15px;
   margin-top: 0px;
   border: solid rgb(74, 187, 85) 2px;
-  border-radius: 50%;
+  border-radius: 10%;
+  background: white;
 }
 
 .clock {
@@ -36,7 +37,8 @@
   font-size: 1.2rem;
   margin-top: 0px;
   border: solid red 2px;
-  border-radius: 50%;
+  border-radius: 10%;
+  background: white;
 }
 
 @media (min-width: 768px) {
