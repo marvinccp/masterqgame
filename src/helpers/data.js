@@ -6,6 +6,19 @@ export const getData = async () => {
   return data;
 };
 
+
+export const getTopScorePlayers = async () => {
+  const res = await fetch(
+    "https://masterquestionback-production.up.railway.app/game/players/top/score"
+  );
+  const data = await res.json();
+  console.log(data);
+  return data;
+};
+getTopScorePlayers()
+
+
+
 // export const data = [
 //   {
 //     id: 16,

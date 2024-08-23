@@ -66,7 +66,10 @@ const Home = () => {
         playOnStart={playOnStart}
         playOnSelect={playOnSelect}
       />
-      <GameLayout start={start} category={category} name="Home" />
+      <GameLayout 
+      start={start} 
+      category={category} 
+      name="Game" />
 
       <div className={`${styles.start_blank}`}>
         {transition && (

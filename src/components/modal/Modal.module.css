@@ -43,6 +43,25 @@
   color: aliceblue;
   cursor: pointer;
 }
+.top_score {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+
+  width: 70px;
+  height: 24px;
+
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(
+    320deg,
+    rgb(100, 223, 23),
+    rgb(40, 177, 9),
+    rgb(14, 181, 95)
+  );
+  color: aliceblue;
+  cursor: pointer;
+}
 
 @keyframes slideInFromBottom {
   from {

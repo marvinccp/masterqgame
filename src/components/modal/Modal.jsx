@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Press_Start_2P } from "next/font/google";
 import useResume from "@/hooks/useResume";
+import Link from "next/link";
 const start = Press_Start_2P({ subsets: ["latin"], weight: "400" });
 
 export const Modal = ({ starGame, handleChange, optionError }) => {
@@ -14,8 +15,6 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
   const options = (value) => {
     setselectedOption(value);
   };
-
-
 
   useEffect(() => {
     setBrowser(true);
@@ -27,16 +26,17 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
     return ReactDOM.createPortal(
       <section className={styles.container}>
         <div className={styles.option_error}>
-          <p
-            className={start.className}
-          >
-            {optionError}
-          </p>
+          <p className={start.className}>{optionError}</p>
         </div>
         <div className={styles.modal}>
           <button onClick={handleLogout} className={styles.logout_button}>
             logout
           </button>
+          <Link href={'/top_score'}>
+            <button  className={styles.top_score}>
+              top score
+            </button>
+          </Link>
           {/* <Image
             className={styles.image}
             src="/images/mq_1.png"
@@ -112,16 +112,15 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
                 options("Sensei");
               }}
             >
-               <Image
-            className={styles.image5}
-            src="/icons/sensei-mode.png"
-            alt="logo-sensei"
-            width={70}
-            height={70}
-          />
+              <Image
+                className={styles.image5}
+                src="/icons/sensei-mode.png"
+                alt="logo-sensei"
+                width={70}
+                height={70}
+              />
               Sensei
             </motion.button>
-            
           </div>
           {/* <select
             onChange={handleChange}

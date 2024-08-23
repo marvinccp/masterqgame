@@ -1,0 +1,62 @@
+.top_container{
+    width: 100%;
+    height: 85vh;
+    background-image: linear-gradient(
+        rgba(217, 216, 216, 0.86),
+        rgba(255, 255, 255, 0.746)
+      ),
+      url("/images/fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    padding-top: 40px;
+}
+
+
+.table_container {
+  
+    border-radius: 4px;
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+
+    height: 60vh;
+    max-height: 60vh;
+    overflow-y: auto; 
+
+  }
+  .title_container{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+  }
+  .title_container h2{
+font-size: 1rem;
+  }
+  
+  .table {
+      border-collapse: collapse;
+      width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .table th, 
+  .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    color: #f6f6f6;
+    background: rgb(16, 151, 197);
+
+  }
+  .table th{
+    color: #2e2e2e;
+  }
+  
+  .table th {
+    background-color: #eb905b;
+  }

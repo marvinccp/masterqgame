@@ -43,7 +43,7 @@ const useGame = () => {
   //level questions
   const questionsLevel = questionsData
     .filter((questions) => questions.category === state.category)
-    .slice(0, 30);
+    .slice(0, 3);
 
   useEffect(() => {
     sessionStorage.setItem(
