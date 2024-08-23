@@ -13,17 +13,17 @@ import styles from "@/styles/Home.module.css";
 const pixel = Press_Start_2P({ subsets: ["latin"], weight: "400" });
 
 const Home = () => {
+
+
+
+
+
+
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      router.push("/");
-    } else {
-      setLoading(false);
-    }
-  }, [router]);
+  
+  
 
   const {
     end,
@@ -45,7 +45,30 @@ const Home = () => {
     playOnSelect,
     category,
   } = useGame();
- console.log(start);
+
+ useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    router.push("/");
+  } else {
+    setLoading(false);
+  }
+}, [router]);
+
+
+useEffect(() => { 
+
+  router.replace('/game'); 
+}, [router]); 
+
+useEffect(() => {
+  if (!loading && !start) {
+    if (router.pathname !== '/game') {
+      router.replace('/game');
+    }
+  }
+}, [loading, start, router]);
+
 
   useEffect(() => {
     if (end) {
@@ -54,7 +77,7 @@ const Home = () => {
   }, [end, router]);
 
   if (loading) {
-    return null;
+    return <h4>Loading . . .</h4>;
   }
 
   return (
