@@ -232,7 +232,7 @@
 @media (width >=768px) {
   .modal {
     width: 60%;
-    height: 60vh;
+    height: 70vh;
   }
   .go_button_container {
     margin: 6% 0 0 0;

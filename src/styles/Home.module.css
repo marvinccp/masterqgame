@@ -139,9 +139,7 @@
   .main {
     font-size: 1.7rem;
   }
-  .sensei {
-    background: linear-gradient(#1f1f1f, rgb(54, 54, 54), rgb(18, 18, 18));
-  }
+  
 }
 
 .message {
