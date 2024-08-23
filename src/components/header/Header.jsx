@@ -4,7 +4,6 @@ import Image from "next/image";
 
 export const Header = () => {
   const [user, setUser] = useState({});
-
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("user"));
     setUser(data);
