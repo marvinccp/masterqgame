@@ -15,6 +15,8 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
     setselectedOption(value);
   };
 
+
+
   useEffect(() => {
     setBrowser(true);
   }, []);

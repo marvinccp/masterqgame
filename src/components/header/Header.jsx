@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import style from "./Header.module.css";
 import Image from "next/image";
 
-export const Header = ({}) => {
+export const Header = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("user"));
     setUser(data);
   }, []);
+
 
   return (
     <header className={`${style.container}`}>

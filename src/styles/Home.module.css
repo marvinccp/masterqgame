@@ -58,6 +58,7 @@
   background: rgb(8, 186, 245);
   color: white;
   text-indent: 5px;
+  text-align: center;
 }
 .sensei .question_container {
 
@@ -99,14 +100,21 @@
 }
 
 .start_blank {
-  background: linear-gradient(
-    #46cec7,
-    rgb(35, 33, 179),
-    rgba(57, 216, 81, 0.73)
-  );
+  
   height: 85vh;
   width: 100%;
   position: relative;
+
+
+
+  background-image: linear-gradient(
+    rgba(217, 216, 216, 0.86),
+    rgba(255, 255, 255, 0.746)
+  ),
+  url("/images/fondo.png");
+background-size: cover;
+background-position: center;
+background-repeat: repeat;
 }
 
 .sensei {
@@ -147,6 +155,10 @@
 
   .main {
     font-size: 1.7rem;
+  }
+  .question_container{
+    width: 45vw;
+
   }
   
 }
