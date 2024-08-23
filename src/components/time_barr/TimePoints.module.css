@@ -27,6 +27,11 @@
   background: white;
 }
 
+.sensei .gold,
+.sensei .clock {
+  background: transparent;
+}
+
 .clock {
   width: 60px;
   height: 60px;
@@ -44,10 +49,7 @@
 @media (min-width: 768px) {
  
   .container {
-
     padding: 10px 150px ;
-
   }
-  
   
 }

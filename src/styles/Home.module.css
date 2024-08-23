@@ -59,6 +59,12 @@
   color: white;
   text-indent: 5px;
 }
+.sensei .question_container {
+
+  background: rgb(29, 29, 29);
+
+}
+
 
 .incorrect {
   width: 80vw;
