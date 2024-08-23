@@ -31,11 +31,11 @@ const useResume = () => {
      const rewardMap = {
        0: "zombie",
        1: "good",
-       5: "excellent",
-       10: "superior",
-       15: "god",
-       20: "heroe",
-       25: "master",
+       10: "excellent",
+       20: "superior",
+       25: "god",
+       40: "heroe",
+       50: "master",
      };
 
      //se crea un array con los valores maximos de los rangos, que son las key
