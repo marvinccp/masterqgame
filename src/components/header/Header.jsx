@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import style from "./Header.module.css";
 import Image from "next/image";
 
-export const Header = () => {
+export const Header = ({category, start}) => {
+  console.log(category, start);
   const [user, setUser] = useState({});
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("user"));
@@ -11,7 +12,7 @@ export const Header = () => {
 
 
   return (
-    <header className={`${style.container}`}>
+    <header className={`${style.container} ${category === 'Sensei' && start === true && style.sensei}`}>
       <section className={style.logo_container}>
         <Image
           src="/images/mq_1.png"

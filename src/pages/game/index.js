@@ -45,7 +45,7 @@ const Home = () => {
     playOnSelect,
     category,
   } = useGame();
- 
+ console.log(start);
 
   useEffect(() => {
     if (end) {
@@ -66,7 +66,7 @@ const Home = () => {
         playOnStart={playOnStart}
         playOnSelect={playOnSelect}
       />
-      <GameLayout name="Home" />
+      <GameLayout start={start} category={category} name="Home" />
 
       <div className={`${styles.start_blank}`}>
         {transition && (
