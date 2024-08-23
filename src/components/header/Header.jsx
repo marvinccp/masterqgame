@@ -11,7 +11,7 @@ export const Header = ({}) => {
   }, []);
 
   return (
-    <header className={style.container}>
+    <header className={`${style.container}`}>
       <section className={style.logo_container}>
         <Image
           src="/images/mq_1.png"
@@ -22,7 +22,10 @@ export const Header = ({}) => {
         />
       </section>
       <section className={style.user_container}>
-        <p className={style.user_nickname}><span className={style.mando}></span>{user?.nickname}</p>
+        <p className={style.user_nickname}>
+          <span className={style.mando}></span>
+          {user?.nickname}
+        </p>
       </section>
     </header>
   );

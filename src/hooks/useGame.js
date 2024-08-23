@@ -237,6 +237,7 @@ const useGame = () => {
       // setStart(true);
     }
   };
+  console.log(state.category);
 
   return {
     end: state.end,

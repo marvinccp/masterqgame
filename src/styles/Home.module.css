@@ -3,21 +3,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 6rem;
-  height: 75vh;
-  background: linear-gradient(
-    #46cec7,
-    rgb(35, 33, 179),
-    rgba(57, 216, 81, 0.73)
-  );
+  padding: 3rem;
+  height: 85vh;
   font-size: 1.5rem;
-  color: aliceblue;
+  color: rgb(55, 55, 55);
   width: 100%;
+  position: relative;
+
+  background-image: linear-gradient(
+      rgba(217, 216, 216, 0.962),
+      rgb(255, 255, 255)
+    ),
+    url("/images/fondo1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
 }
 
 .answer {
   width: 80vw;
-  height: 60px;
+  height: 70px;
   margin: 5px 0;
   padding: 7px;
   font-size: 1rem;
@@ -27,10 +32,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgb(227, 227, 227);
 }
 
 .answers_container {
-  margin: 35px 0 0 0;
+  margin: 50px 0 0 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,11 +50,16 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
+  margin-top: 90px;
+  height: 100px;
+  padding: 3px;
+  border-radius: 8px;
+  font-weight: 600;
 }
 
 .incorrect {
   width: 80vw;
-  height: 60px;
+  height: 70px;
   margin: 5px 0;
   background-color: rgb(211, 95, 72);
   padding: 7px;
@@ -64,7 +75,7 @@
 
 .correct {
   width: 80vw;
-  height: 60px;
+  height: 70px;
   margin: 5px 0;
   background-color: rgb(80, 206, 78);
   padding: 7px;
@@ -90,16 +101,26 @@
 }
 
 .sensei {
+  background: linear-gradient(#1f1f1f, rgb(54, 54, 54), rgb(18, 18, 18));
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 6rem;
-  height: 75vh;
-  background: linear-gradient(#1f1f1f, rgb(54, 54, 54), rgb(18, 18, 18));
+  padding: 3rem;
+  height: 85vh;
   font-size: 1.5rem;
   color: aliceblue;
   width: 100%;
+  position: relative;
+
+  background-image: linear-gradient(
+      rgba(21, 21, 21, 0.837),
+      rgba(20, 20, 20, 0.748)
+    ),
+    url("/images/backImage_sensei.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
 }
 
 @media (min-width: 768px) {
@@ -134,5 +155,5 @@
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: .6rem;
+  font-size: 0.6rem;
 }

@@ -45,6 +45,7 @@ const Home = () => {
     playOnSelect,
     category,
   } = useGame();
+ 
 
   useEffect(() => {
     if (end) {
@@ -73,13 +74,13 @@ const Home = () => {
             <h2 className={pixel.className}>{messageLevel}</h2>
           </div>
         )}{" "}
-        {start && <TimeBarr category={category} points={points} time={time} />}
         {start && (
           <section
-            className={`${styles.main} ${
-              category === "Sensei" && styles.sensei
-            }`}
+          className={`${styles.main} ${
+            category === "Sensei" && styles.sensei
+          }`}
           >
+            {start && <TimeBarr category={category} points={points} time={time} />}
             <section className={styles.question_container}>
               {/* Questions */}
               <span>{questionsLevel[actualQuestion]?.question}</span>
