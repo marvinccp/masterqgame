@@ -27,7 +27,7 @@ const Index = () => {
           <table className={styles.table}>
             <thead>
               <tr>
-                <th>posición</th>
+                <th>Posición</th>
                 <th>Nickname</th>
                 <th>Score</th>
               </tr>

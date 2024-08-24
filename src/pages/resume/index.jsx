@@ -68,6 +68,9 @@ const Index = ({ children }) => {
           <Link className={styles.link} href={"/game"}>
             <button className={styles.new_game_button}>New Game</button>
           </Link>
+          <Link className={styles.link} href={"/top_score"}>
+            <button className={styles.new_game_button}>Top Score</button>
+          </Link>
           <button className={styles.logout_button}  onClick={handleLogout}>logout</button>
 
         </section>
