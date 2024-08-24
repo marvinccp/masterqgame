@@ -1,28 +1,15 @@
 import { getData } from "@/helpers/data";
-import { gameReducer } from "@/reducers/gameReducer";
+import { gameReducer, initialState } from "@/reducers/gameReducer";
 import { useReducer, useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
 import confetti from "canvas-confetti";
-// import { GameMusic } from "@/components/game_music/GameMusic";
 import axios from "axios";
 
 const useGame = () => {
-  const initialState = {
-    category: null,
-    end: false,
-    actualQuestion: 0,
-    disabled: false,
-    time: 0,
-    points: 0,
-    correct: 0,
-    start: false,
-    show: false,
-    optionError: "",
-    transition: false,
-    messageLevel: "",
-  };
-
+  
   const [state, dispatch] = useReducer(gameReducer, initialState);
+
+
   const [player, setPlayer] = useState({});
   const [data, setData] = useState([]);
   const [playOnCorrect, setPlayOnCorrect] = useState(false);

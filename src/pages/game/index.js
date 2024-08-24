@@ -14,17 +14,9 @@ const pixel = Press_Start_2P({ subsets: ["latin"], weight: "400" });
 
 const Home = () => {
 
-
-
-
-
-
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-
   
-  
-
   const {
     end,
     start,
@@ -56,10 +48,6 @@ const Home = () => {
 }, [router]);
 
 
-useEffect(() => { 
-
-  router.replace('/game'); 
-}, [router]); 
 
 useEffect(() => {
   if (!loading && !start) {

@@ -1,3 +1,20 @@
+export const initialState = {
+  category: null,
+  end: false,
+  actualQuestion: 0,
+  disabled: false,
+  time: 0,
+  points: 0,
+  correct: 0,
+  start: false,
+  show: false,
+  optionError: "",
+  transition: false,
+  messageLevel: "",
+};
+
+
+
 export const gameReducer = (state, action) => {
   switch (action.type) {
     case "CATEGORY":
