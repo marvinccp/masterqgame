@@ -1,8 +1,10 @@
 import GameLayout from "@/layouts/GameLayout";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import styles from "./top_score.module.css";
 import { getTopScorePlayers } from "@/helpers/data";
 import { Press_Start_2P } from "next/font/google";
+import { Loader } from "@/components/loader/Loader";
+
 const start = Press_Start_2P({ subsets: ["latin"], weight: "400" });
 
 const Index = () => {
@@ -16,8 +18,9 @@ const Index = () => {
     getData();
   }, []);
 
+ 
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <GameLayout title="Top Score" />
       <section className={styles.top_container}>
         <section className={styles.title_container}>
@@ -44,7 +47,7 @@ const Index = () => {
           </table>
         </section>
       </section>
-    </>
+    </Suspense>
   );
 };
 export default Index;
