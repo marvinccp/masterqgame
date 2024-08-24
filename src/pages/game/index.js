@@ -9,14 +9,14 @@ import { Press_Start_2P } from "next/font/google";
 import GameLayout from "@/layouts/GameLayout";
 import useGame from "@/hooks/useGame";
 import styles from "@/styles/Home.module.css";
+import { Loader } from "@/components/loader/Loader";
 
 const pixel = Press_Start_2P({ subsets: ["latin"], weight: "400" });
 
 const Home = () => {
-
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  
+
   const {
     end,
     start,
@@ -38,25 +38,22 @@ const Home = () => {
     category,
   } = useGame();
 
- useEffect(() => {
-  const token = localStorage.getItem("token");
-  if (!token) {
-    router.push("/");
-  } else {
-    setLoading(false);
-  }
-}, [router]);
-
-
-
-useEffect(() => {
-  if (!loading && !start) {
-    if (router.pathname !== '/game') {
-      router.replace('/game');
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/");
+    } else {
+      setLoading(false);
     }
-  }
-}, [loading, start, router]);
+  }, [router]);
 
+  useEffect(() => {
+    if (!loading && !start) {
+      if (router.pathname !== "/game") {
+        router.replace("/game");
+      }
+    }
+  }, [loading, start, router]);
 
   useEffect(() => {
     if (end) {
@@ -65,7 +62,8 @@ useEffect(() => {
   }, [end, router]);
 
   if (loading) {
-    return <h4>Loading . . .</h4>;
+      return <Loader />;
+    
   }
 
   return (
@@ -77,10 +75,7 @@ useEffect(() => {
         playOnStart={playOnStart}
         playOnSelect={playOnSelect}
       />
-      <GameLayout 
-      start={start} 
-      category={category} 
-      name="Game" />
+      <GameLayout start={start} category={category} name="Game" />
 
       <div className={`${styles.start_blank}`}>
         {transition && (
@@ -90,11 +85,13 @@ useEffect(() => {
         )}{" "}
         {start && (
           <section
-          className={`${styles.main} ${
-            category === "Sensei" && styles.sensei
-          }`}
+            className={`${styles.main} ${
+              category === "Sensei" && styles.sensei
+            }`}
           >
-            {start && <TimeBarr category={category} points={points} time={time} />}
+            {start && (
+              <TimeBarr category={category} points={points} time={time} />
+            )}
             <section className={styles.question_container}>
               {/* Questions */}
               <span>{questionsLevel[actualQuestion]?.question}</span>
