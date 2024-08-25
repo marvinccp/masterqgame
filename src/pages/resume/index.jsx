@@ -1,4 +1,4 @@
-import styles from "../../components/resume/Resume.module.css";
+import styles from "./Resume.module.css";
 import GameLayout from "@/layouts/GameLayout";
 import Link from "next/link";
 import Image from "next/image";
