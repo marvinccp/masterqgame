@@ -18,12 +18,8 @@ export const RegisterForm = ({ closeModal }) => {
       [name]: value,
     }));
 
-
-    setResErrorMessage('')
-
+    setResErrorMessage("");
   };
-
- 
 
   const handleSubmit = async (e) => {
     e.preventDefault();

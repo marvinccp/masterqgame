@@ -1,12 +1,12 @@
 import useGame from "@/hooks/useGame";
 import React from "react";
 
-const ButtonClose = () => {
+const ButtonClose = ({ name }) => {
   const { handleLogout } = useGame();
 
   return (
     <>
-      <button onClick={handleLogout}>Logout</button>
+      <button onClick={handleLogout}>{name}</button>
     </>
   );
 };

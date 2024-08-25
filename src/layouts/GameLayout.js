@@ -4,7 +4,6 @@ import { Header } from '@/components/header/Header';
 
 
 const GameLayout = ({ name='Master Question', category, start } ) => {
-  console.log(category);
   return (
     <>
       <Head>
@@ -13,7 +12,10 @@ const GameLayout = ({ name='Master Question', category, start } ) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header category={category} start={start} />
+      <Header 
+      category={category} 
+      start={start} 
+      />
     </>
   );
 }
