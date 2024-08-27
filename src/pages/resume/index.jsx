@@ -26,10 +26,10 @@ const Index = ({ children }) => {
           <div className={styles.resume}>
             <h2
               className={start.className}
-              style={{marginTop:'20px', color: "black", fontSize: "1.1rem", lineHeight: "1.2rem" }}
+              style={{marginTop:'20px', color: "black", fontSize: ".8rem",  }}
             >{`${correct} De ${questionsNumber.length} Preguntas`}</h2>
             <h2
-              style={{ color: "green", fontSize: "1.2rem" }}
+              style={{ color: "green", fontSize: "1rem", lineHeight:'2rem' }}
               className={start.className}
             >{`Has Ganado ${points} puntos`}</h2>
           </div>

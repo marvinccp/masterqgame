@@ -77,6 +77,7 @@ background: linear-gradient(320deg, orange, rgba(255, 72, 0, 0.758), rgba(247, 1
     width: 95%;
     gap: 20px;
     text-align: center;
+    line-height: 1rem;
 }
 .zombie{
     display: flex;

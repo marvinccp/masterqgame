@@ -12,10 +12,9 @@ export const getTopScorePlayers = async () => {
     "https://masterquestionback-production.up.railway.app/game/players/top/score"
   );
   const data = await res.json();
-  console.log(data);
   return data;
 };
-getTopScorePlayers()
+
 
 
 

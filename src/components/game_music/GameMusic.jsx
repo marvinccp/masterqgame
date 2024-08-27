@@ -34,7 +34,9 @@ export const GameMusic = ({
       } else if (isPlaying && playOnCorrect) {
         audio.src = "/sounds/ok_2.mp3";
         audio.currentTime = 0;
-        audio.play().catch((error) => {
+        audio
+        .play()
+        .catch((error) => {
           console.error("Error al reproducir el audio:", error);
         });
       } else if (!isPlaying) {

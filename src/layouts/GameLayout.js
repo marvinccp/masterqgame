@@ -4,6 +4,7 @@ import { Header } from '@/components/header/Header';
 
 
 const GameLayout = ({ name='Master Question', category, start } ) => {
+
   return (
     <>
       <Head>

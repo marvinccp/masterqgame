@@ -13,8 +13,6 @@ export const initialState = {
   messageLevel: "",
 };
 
-
-
 export const gameReducer = (state, action) => {
   switch (action.type) {
     case "CATEGORY":
@@ -80,10 +78,74 @@ export const gameReducer = (state, action) => {
         transition: false,
       };
 
-      case 'OPTION_SELECTED':
-        return {
+    case "OPTION_SELECTED":
+      return {
         ...state,
-        optionError: ''
+        optionError: "",
+      };
+    default:
+      return state;
+  }
+};
+
+
+export const dataInitialState = {
+  player: {},
+  data: [],
+};
+export const dataReducer = (state, action) => {
+  switch (action.type) {
+    case "PLAYER_DATA":
+      return {
+        ...state,
+        player: action.payload,
+      };
+    case "GAME_DATA":
+      return {
+        ...state,
+        data: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const soundInitialState = {
+  playOnCorrect: false,
+  playOnStart: false,
+  playOnSelect: false,
+};
+export const soundReducer = (state, action) => {
+  switch(action.type){
+    case 'ON_CORRECT':
+      return{
+        ...state,
+        playOnCorrect:true
+      }
+    case 'OFF_CORRECT':
+      return{
+        ...state,
+        playOnCorrect:false
+      }
+    case 'ON_START':
+      return{
+        ...state,
+        playOnStart:true
+      }
+    case 'OFF_START':
+      return{
+        ...state,
+        playOnStart:false
+      }
+    case 'ON_SELECT':
+      return{
+        ...state,
+        playOnSelect:true
+      }
+    case 'OFF_SELECT':
+      return{
+        ...state,
+        playOnSelect:false
       }
   }
 };

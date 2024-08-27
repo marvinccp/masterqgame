@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const Header = ({category, start}) => {
-  console.log(category, start);
   const [user, setUser] = useState({});
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("user"));

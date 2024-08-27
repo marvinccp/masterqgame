@@ -1,6 +1,6 @@
 import { getData } from "@/helpers/data";
-import { gameReducer, initialState } from "@/reducers/gameReducer";
-import { useReducer, useEffect, useState } from "react";
+import { dataInitialState, dataReducer, gameReducer, initialState, soundInitialState, soundReducer } from "@/reducers/gameReducer";
+import { useReducer, useEffect } from "react";
 import styles from "@/styles/Home.module.css";
 import confetti from "canvas-confetti";
 import axios from "axios";
@@ -8,29 +8,28 @@ import axios from "axios";
 const useGame = () => {
   
   const [state, dispatch] = useReducer(gameReducer, initialState);
+  const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState);
+  const [soundState, soundDispatch] = useReducer(soundReducer, soundInitialState);
 
 
-  const [player, setPlayer] = useState({});
-  const [data, setData] = useState([]);
-  const [playOnCorrect, setPlayOnCorrect] = useState(false);
-  const [playOnStart, setPlayOnStart] = useState(false);
-  const [playOnSelect, setPlayOnSelect] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       const res = await getData();
-      setData(res);
+      dataDispatch({
+        type:"GAME_DATA",
+        payload: res
+      });
     };
 
     fetchData();
   }, []);
 
   //questions
-  const questionsData = data;
 
   //level questions
-  const questionsLevel = questionsData
+  const questionsLevel = dataState.data
     .filter((questions) => questions.category === state.category)
-    .slice(0, 35);
+    .slice(0, 28);
 
   useEffect(() => {
     sessionStorage.setItem(
@@ -48,7 +47,9 @@ const useGame = () => {
     if (!player) {
       return;
     }
-    setPlayer(player);
+    dataDispatch({
+      type:"PLAYER_DATA", payload:player
+    })
   }, []);
 
   const updateTotalPoints = async (playerId) => {
@@ -57,8 +58,6 @@ const useGame = () => {
     }
     const sessionData = JSON.parse(sessionStorage.getItem("points"));
     const sessionPoints = sessionData?.points;
-
-    console.log(playerId, sessionPoints);
 
     try {
       const response = await axios.patch(
@@ -96,7 +95,7 @@ const useGame = () => {
         state.actualQuestion === questionsLevel.length - 1
       ) {
         dispatch({ type: "END_GAME" });
-        updateTotalPoints(player.id);
+        updateTotalPoints(dataState.player.id);
         // setEnd(true);
         // setTime(null);
       }
@@ -108,7 +107,7 @@ const useGame = () => {
     state.actualQuestion,
     state.start,
     questionsLevel.length,
-    player.id,
+    dataState.player.id,
     state.points,
   ]);
 
@@ -155,9 +154,9 @@ const useGame = () => {
   };
 
   const nextQuestion = (e) => {
-    setPlayOnStart(false);
+    soundDispatch({ type:'OFF_START'})
     setTimeout(() => {
-      setPlayOnCorrect(false);
+      soundDispatch({ type: 'OFF_CORRECT'})
     }, 200);
     if (nivelMessages[state.actualQuestion]) {
       dispatch({
@@ -171,7 +170,7 @@ const useGame = () => {
     if (state.actualQuestion === questionsLevel.length - 1) {
       setTimeout(() => {
         dispatch({ type: "END_GAME" });
-        updateTotalPoints(player.id);
+        updateTotalPoints(dataState.player.id);
         // setTime(null);
         // setEnd(true);
       }, 2500);
@@ -190,10 +189,9 @@ const useGame = () => {
   const correctAnswer = (isCorrect, e) => {
     if (isCorrect) {
       e.target.classList = styles.correct;
-      setPlayOnCorrect(true);
+      soundDispatch({ type: 'ON_CORRECT'});
       dispatch({ type: "CORRECT_ANSWER" });
-      // setPoints(points + 2);
-      // setCorrect(correct + 1);
+
       confettiLevel(e);
     } else {
       e.target.classList = styles.incorrect;
@@ -204,11 +202,10 @@ const useGame = () => {
     dispatch({ type: "CATEGORY", payload: value });
     dispatch({ type: "OPTION_SELECTED" });
 
-    setPlayOnSelect(true);
+    soundDispatch({ type:'ON_SELECT' })
     // setCategory(value);
     setTimeout(() => {
-      setPlayOnSelect(false);
-    }, 200);
+soundDispatch({ type: 'OFF_SELECT'})    }, 200);
   };
 
   //iniciar el juego luego de escoger nivel de dificultad
@@ -218,13 +215,9 @@ const useGame = () => {
       // setOptionError("Choose Level!!");
     } else {
       dispatch({ type: "START_GAME" });
-      setPlayOnStart(true);
-      // setTime(10);
-      // setShow(false);
-      // setStart(true);
+      soundDispatch({ type:'ON_START' })
     }
   };
-  console.log(state.category);
 
   return {
     end: state.end,
@@ -242,10 +235,11 @@ const useGame = () => {
     handleChange,
     handleAnswer,
     correct: state.correct,
-    playOnCorrect,
-    playOnStart,
-    playOnSelect,
+    playOnCorrect:soundState.playOnCorrect,
+    playOnStart:soundState.playOnStart,
+    playOnSelect:soundState.playOnSelect,
     category: state.category,
+    player:dataState.player
   };
 };
 export default useGame;
