@@ -35,7 +35,7 @@ export const RegisterForm = ({ closeModal }) => {
         setResErrorMessage("");
         setTimeout(() => {
           closeModal();
-        }, 2000);
+        }, 1000);
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {
