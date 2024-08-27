@@ -13,6 +13,8 @@ export const initialState = {
   messageLevel: "",
 };
 
+
+
 export const gameReducer = (state, action) => {
   switch (action.type) {
     case "CATEGORY":
