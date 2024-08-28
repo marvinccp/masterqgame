@@ -37,9 +37,9 @@ export const RegisterForm = ({ closeModal }) => {
       if (response.status === 201) {
         setResSuccesMessage(response.data.message);
         setResErrorMessage("");
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
         setTimeout(() => {
-          localStorage.setItem("token", token);
-          localStorage.setItem("user", JSON.stringify(user));
           closeModal();
           router.push("/game");
         }, 1000);
