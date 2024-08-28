@@ -1,8 +1,10 @@
 import { useState } from "react";
 import styles from "../../styles/Login.module.css";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 export const RegisterForm = ({ closeModal }) => {
+  const router = useRouter()
   const [resErrorMessage, setResErrorMessage] = useState("");
   const [resSuccesMessage, setResSuccesMessage] = useState("");
   const [formData, setFormData] = useState({
@@ -29,16 +31,17 @@ export const RegisterForm = ({ closeModal }) => {
         "https://masterquestionback-production.up.railway.app/game/players",
         formData
       );
+      console.log(response);
       const token = response.data.token;
       const user = response.data.player;
       if (response.status === 201) {
         setResSuccesMessage(response.data.message);
         setResErrorMessage("");
         setTimeout(() => {
-        router.push("/game");
-        localStorage.setItem("token", token);
-        localStorage.setItem("user", JSON.stringify(user));
+          localStorage.setItem("token", token);
+          localStorage.setItem("user", JSON.stringify(user));
           closeModal();
+          router.push("/game");
         }, 1000);
       }
     } catch (error) {
