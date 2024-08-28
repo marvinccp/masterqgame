@@ -168,7 +168,9 @@ const Login = () => {
           </RegisterModal>
         )}
       </>
+    
     </section>
+    
   );
 };
 export default Login;

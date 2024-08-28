@@ -29,11 +29,15 @@ export const RegisterForm = ({ closeModal }) => {
         "https://masterquestionback-production.up.railway.app/game/players",
         formData
       );
-      console.log(response);
+      const token = response.data.token;
+      const user = response.data.player;
       if (response.status === 201) {
         setResSuccesMessage(response.data.message);
         setResErrorMessage("");
         setTimeout(() => {
+        router.push("/game");
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
           closeModal();
         }, 1000);
       }
