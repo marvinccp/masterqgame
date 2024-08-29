@@ -3,7 +3,7 @@ import { Modal } from "@/components/modal/Modal";
 import { GameMusic } from "@/components/game_music/GameMusic";
 
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Press_Start_2P } from "next/font/google";
 
 import GameLayout from "@/layouts/GameLayout";
@@ -68,51 +68,48 @@ const Home = () => {
 
   return (
     <>
-      <GameMusic
-        isPlaying={start && !end}
-        volume={0.3}
-        playOnCorrect={playOnCorrect}
-        playOnStart={playOnStart}
-        playOnSelect={playOnSelect}
-      />
-      <GameLayout
-        start={start}
-        category={category}
-        name="Game"
-      />
+      <Suspense fallback={<Loader/>}>
+        <GameMusic
+          isPlaying={start && !end}
+          volume={0.3}
+          playOnCorrect={playOnCorrect}
+          playOnStart={playOnStart}
+          playOnSelect={playOnSelect}
+        />
+        <GameLayout start={start} category={category} name="Game" />
 
-      <div className={`${styles.start_blank}`}>
-        {transition && (
-          <div className={`${styles.message} }`}>
-            <h2 className={pixel.className}>{messageLevel}</h2>
-          </div>
-        )}{" "}
-        {start && (
-          <section
-            className={`${styles.main} ${
-              category === "Sensei" && styles.sensei
-            }`}
-          >
-            {start && (
-              <TimeBarr category={category} points={points} time={time} />
-            )}
-            <section className={styles.question_container}>
-              {/* Questions */}
-              <span>{questionsLevel[actualQuestion]?.question}</span>
-            </section>
-            <section className={styles.answers_container}>
-              {/* Answers */}
-              {questionsLevel[actualQuestion]?.options.map((answer) => (
-                <button
-                  key={answer.op}
-                  disabled={disabled}
-                  onClick={(e) => handleAnswer(answer.isCorrect, e)}
-                  className={`${styles.answer}`}
-                >
-                  {answer.answerText}
-                </button>
-              ))}
-              {/* <div
+        <div className={`${styles.start_blank}`}>
+          {transition && (
+            <div className={`${styles.message} }`}>
+              <h2 className={pixel.className}>{messageLevel}</h2>
+            </div>
+          )}{" "}
+          {start && (
+            <section
+              className={`${styles.main} ${
+                category === "Sensei" && styles.sensei
+              }`}
+            >
+              {start && (
+                <TimeBarr category={category} points={points} time={time} />
+              )}
+              <section className={styles.question_container}>
+                {/* Questions */}
+                <span>{questionsLevel[actualQuestion]?.question}</span>
+              </section>
+              <section className={styles.answers_container}>
+                {/* Answers */}
+                {questionsLevel[actualQuestion]?.options.map((answer) => (
+                  <button
+                    key={answer.op}
+                    disabled={disabled}
+                    onClick={(e) => handleAnswer(answer.isCorrect, e)}
+                    className={`${styles.answer}`}
+                  >
+                    {answer.answerText}
+                  </button>
+                ))}
+                {/* <div
                 style={{
                   marginTop: "20px",
                   position: "aboslute",
@@ -125,21 +122,22 @@ const Home = () => {
                   placeContent: "center",
                   fontSize: "1.2rem",
                 }}
-              >
+                >
                 {actualQuestion + 1}
               </div> */}
+              </section>
             </section>
-          </section>
-        )}
-      </div>
+          )}
+        </div>
 
-      {show && (
-        <Modal
-          optionError={optionError}
-          starGame={starGame}
-          handleChange={handleChange}
-        />
-      )}
+        {show && (
+          <Modal
+            optionError={optionError}
+            starGame={starGame}
+            handleChange={handleChange}
+          />
+        )}
+      </Suspense>
     </>
   );
 };

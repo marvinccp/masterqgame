@@ -9,16 +9,35 @@ const start = Press_Start_2P({ subsets: ["latin"], weight: "400" });
 
 const Index = () => {
   const [data, setData] = useState([]);
-  console.log(data);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   useEffect(() => {
-    const getData = async () => {
-      const players = await getTopScorePlayers();
-      setData(players);
-    };
-    getData();
-  }, []);
+    try {
+      const getData = async () => {
+        const players = await getTopScorePlayers();
 
- 
+        if (players) {
+          setData(players.players);
+        } else {
+          throw new Error("Error en la carga de datos");
+        }
+      };
+      getData();
+    } catch (error) {
+      setError(
+        "No podemos cargar los datos en este momento, intentelo más tarde"
+      );
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+  if(loading){
+    return <Loader />
+  }
+  if(error){
+    return <h1>{error}</h1>
+  }
+
   return (
     <Suspense fallback={<Loader />}>
       <GameLayout title="Top Score" />
@@ -36,13 +55,14 @@ const Index = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((player, i) => (
-                <tr key={player.id}>
-                  <td>{i + 1}</td>
-                  <td>{player.nickname}</td>
-                  <td>{player.score}</td>
-                </tr>
-              ))}
+              {data.length > 0 &&
+                data?.map((player, i) => (
+                  <tr key={player.id}>
+                    <td>{i + 1}</td>
+                    <td>{player.nickname}</td>
+                    <td>{player.score}</td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </section>
