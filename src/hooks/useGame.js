@@ -29,10 +29,10 @@ const useGame = () => {
   //level questions
   const questionsLevel = dataState.data
     .filter((questions) => questions.category === state.category)
-    .slice(0, 28);
+    .slice(0, 15);
 
   useEffect(() => {
-    sessionStorage.setItem(
+    localStorage.setItem(
       "points",
       JSON.stringify({
         points: state.points,
@@ -56,7 +56,7 @@ const useGame = () => {
     if (!playerId) {
       throw new Error("playerId o points no son válidos");
     }
-    const sessionData = JSON.parse(sessionStorage.getItem("points"));
+    const sessionData = JSON.parse(localStorage.getItem("points"));
     const sessionPoints = sessionData?.points;
 
     try {

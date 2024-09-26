@@ -21,7 +21,7 @@ const useResume = () => {
      const [state, dispatch] = useReducer(gameResumeReducer, initialState);
 
      useEffect(() => {
-       const points = JSON.parse(sessionStorage.getItem("points"));
+       const points = JSON.parse(localStorage.getItem("points"));
        if (points) {
          dispatch({ type: "RESUME", payload: points });
        }

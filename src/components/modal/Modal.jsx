@@ -37,17 +37,7 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
               top score
             </button>
           </Link>
-          {/* <Image
-            className={styles.image}
-            src="/images/mq_1.png"
-            alt="logo-white"
-            width={140}
-            height={140}
-          /> */}
-          {/* <h3 className={styles.text}>
-            Welcome!! Are you ready ? <br />
-          </h3> */}
-          {/* <h2>Choose your level</h2> */}
+        
           <div className={styles.btns_options}>
             <motion.button
               whileHover={{ scale: 1.04 }}
@@ -122,22 +112,7 @@ export const Modal = ({ starGame, handleChange, optionError }) => {
               Sensei
             </motion.button>
           </div>
-          {/* <select
-            onChange={handleChange}
-            className={styles.level}
-            name="category"
-            id="category"
-          >
-            <option value="Easy" className={styles.optionItem}>
-              Easy
-            </option>
-            <option value="Medium" className={styles.optionItem}>
-              Medium
-            </option>
-            <option value="Hard" className={styles.optionItem}>
-              Hard
-            </option>
-          </select> */}
+      
           <div className={styles.go_button_container}>
             <button
               className={styles.start}
